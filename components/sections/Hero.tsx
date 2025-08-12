@@ -23,7 +23,7 @@ const Hero = () => {
         {/* Success Badge */}
         <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-600/90 text-white text-sm font-medium mb-8 backdrop-blur-sm">
           <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-          PRIMERA EDICIÓN EXITOSA PROBANDO AUTO
+          PRIMERA EDICIÓN EXITOSA PROBANDO
         </div>
 
         {/* Main Title */}
