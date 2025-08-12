@@ -7,9 +7,12 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  experimental: {
-    optimizeCss: true,
-  },
+  // experimental: {
+  //   optimizeCss: true,
+  // },
+  compress: true,
+  poweredByHeader: false,
+  trailingSlash: false,
   // Performance optimizations
   compiler: {
     // Remove console.logs in production
@@ -47,13 +50,6 @@ const nextConfig: NextConfig = {
 
     return config
   },
-
-  // Compression and caching
-  compress: true,
-  poweredByHeader: false,
-  
-  // Static optimization
-  trailingSlash: false,
   
   // Headers for better caching
   async headers() {
