@@ -6,7 +6,7 @@ interface FlagIconProps {
 }
 
 const FlagIcon: React.FC<FlagIconProps> = ({ countryCode, className = "w-6 h-4" }) => {
-  const flags: Record<string, JSX.Element> = {
+  const flags: Record<string, React.ReactElement> = {
     'PE': (
       <svg className={className} viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
         <rect width="8" height="16" fill="#D91023" />
