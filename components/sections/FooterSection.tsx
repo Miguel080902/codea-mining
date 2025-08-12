@@ -65,18 +65,18 @@ const Footer = () => {
                   height={90}
                   className="object-contain mb-4"
                 />
-                <h3 className="text-xl font-bold text-white mb-3">CODEa Mining Fest</h3>
-                <p className="text-gray-400 leading-relaxed">
+                <h3 className="text-lg sm:text-xl font-medium sm:font-bold text-white mb-3">CODEa Mining Fest</h3>
+                <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-light">
                   El evento líder en innovación minera de Latinoamérica. Conectando profesionales, 
                   empresas y estudiantes para explorar el futuro de la industria.
                 </p>
               </div>
 
               {/* Event Stats */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="text-center p-3 bg-slate-800/30 rounded-lg border border-white/10">
-                  <div className="text-2xl font-bold text-yellow-400">300+</div>
-                  <div className="text-xs text-gray-400">Asistentes</div>
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6">
+                <div className="text-center p-2 sm:p-3 bg-slate-800/30 rounded-lg border border-white/10">
+                  <div className="text-xl sm:text-2xl font-medium sm:font-bold text-yellow-400">300+</div>
+                  <div className="text-xs text-gray-400 font-light">Asistentes</div>
                 </div>
                 <div className="text-center p-3 bg-slate-800/30 rounded-lg border border-white/10">
                   <div className="text-2xl font-bold text-blue-400">25+</div>

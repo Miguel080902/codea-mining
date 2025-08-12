@@ -6,7 +6,16 @@ import { ArrowRight, Users, Network, Target } from 'lucide-react';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  // Array de imágenes
+  const images = [
+    '/images/about/about-1.jpg',
+    '/images/about/about-2.jpg',
+    '/images/about/about-3.jpg',
+    '/images/about/about-4.jpg'
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -15,7 +24,7 @@ const AboutSection = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) {
@@ -24,6 +33,17 @@ const AboutSection = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  // Efecto para el carrusel de imágenes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3500); // Cambia cada 2 segundos
+
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   const features = [
     {
@@ -116,7 +136,7 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Image Side */}
+          {/* Image Side with Carousel */}
           <div className={`transform transition-all duration-1000 delay-300 ${
             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
           }`}>
@@ -124,20 +144,47 @@ const AboutSection = () => {
               {/* Main image container */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10" />
-                <Image
-                  src="/images/conference-speaker.jpg"
-                  alt="CODEa Mining Fest Conference"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+                
+                {/* Image carousel */}
+                <div className="relative w-full h-[400px]">
+                  {images.map((imageSrc, index) => (
+                    <div
+                      key={index}
+                      className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+                        index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    >
+                      <Image
+                        src={imageSrc}
+                        alt={`CODEa Mining Fest ${index + 1}`}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
+                  ))}
+                </div>
                 
                 {/* Overlay badge */}
                 <div className="absolute bottom-6 left-6 z-20 bg-slate-900/90 backdrop-blur-md rounded-xl px-4 py-3 border border-yellow-500/30">
                   <div className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
-                    <span className="text-white font-medium">En vivo desde el CMF 2025</span>
+                    <span className="text-white font-medium">CMF 2025</span>
                   </div>
+                </div>
+
+                {/* Image indicators */}
+                <div className="absolute bottom-6 right-6 z-20 flex space-x-2">
+                  {images.map((_, index) => (
+                    <div
+                      key={index}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex 
+                          ? 'bg-yellow-400 w-6' 
+                          : 'bg-white/40 hover:bg-white/60'
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
 

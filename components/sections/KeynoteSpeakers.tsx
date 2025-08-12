@@ -13,20 +13,29 @@ const KeynoteSpeakers = () => {
   const totalPages = 2;
 
   useEffect(() => {
+    // Fallback para mobile: mostrar después de 1 segundo si no se detecta intersección
+    const fallbackTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 1000);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          clearTimeout(fallbackTimer);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1, rootMargin: '50px 0px' }
     );
 
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallbackTimer);
+    };
   }, []);
 
   const keynoteSpeakers = [

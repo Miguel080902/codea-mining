@@ -6,15 +6,20 @@ import SocialIcons from '@/components/ui/SocialIcons';
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/mining-background.jpg"
-          alt="Mining truck background"
-          fill
-          className="object-cover opacity-40"
-          priority
-        />
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/images/hero/video-portada-CMF.mp4" type="video/mp4" />
+          {/* Fallback para navegadores que no soporten el video */}
+          <div className="absolute inset-0 bg-slate-900" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
       </div>
 
@@ -27,28 +32,28 @@ const Hero = () => {
         </div>
 
         {/* Main Title */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light md:font-bold text-white mb-4 md:mb-6 leading-tight">
           ¡Gracias por ser parte del
           <br />
-          <span className="text-gradient">
+          <span className="text-gradient font-medium md:font-bold">
             CODEa Mining Fest
           </span>{' '}
-          <span className="text-yellow-400">2025</span>!
+          <span className="text-yellow-400 font-medium md:font-bold">2025</span>!
         </h1>
 
         {/* Description */}
-        <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl md:max-w-4xl mx-auto mb-8 md:mb-12 leading-relaxed font-light px-2 sm:px-0">
           El evento que reunió a profesionales, empresas, autoridades y estudiantes para explorar el futuro de la
           minería en Latinoamérica. Más de 300 asistentes participaron de una jornada intensa con charlas técnicas,
           innovación, networking, mesas redondas y un pitch de proyectos CODEa.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-          <Button variant="primary" size="lg" className="min-w-[250px]">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 md:mb-16 px-4 sm:px-0">
+          <Button variant="primary" size="md" className="w-full sm:w-auto px-6 py-3 text-sm sm:text-base">
             Participar del próximo evento
           </Button>
-          <Button variant="outline" size="lg" className="min-w-[250px]">
+          <Button variant="outline" size="md" className="w-full sm:w-auto px-6 py-3 text-sm sm:text-base">
             Convertirse en patrocinador
           </Button>
         </div>
@@ -59,10 +64,29 @@ const Hero = () => {
         <SocialIcons orientation="vertical" />
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 border border-blue-500/30 rounded-full animate-pulse opacity-60" />
-      <div className="absolute bottom-40 left-20 w-16 h-16 border border-yellow-500/30 rounded-lg rotate-45 animate-bounce opacity-40" />
-      <div className="absolute top-40 right-20 w-12 h-12 bg-blue-500/20 rounded-full animate-ping opacity-30" />
+      {/* Decorative Elements with Company Logo */}
+      <div className="absolute top-20 left-10 w-16 h-16 opacity-30 animate-pulse">
+        <Image 
+          src="/images/FAVICON-CODEAMININGFEST.png" 
+          alt="CODEa Mining Fest" 
+          width={64}
+          height={64}
+          className="w-full h-full object-contain filter brightness-200"
+        />
+      </div>
+
+      <div className="absolute bottom-1/3 right-1/4 w-14 h-14 opacity-25 animate-bounce">
+        <Image 
+          src="/images/FAVICON-CODEAMININGFEST.png" 
+          alt="CODEa Mining Fest" 
+          width={56}
+          height={56}
+          className="w-full h-full object-contain filter brightness-200"
+        />
+      </div>
+
+      {/* Smooth transition gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-slate-800/60 to-slate-800 z-10" />
     </section>
   );
 };

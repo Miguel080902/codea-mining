@@ -35,16 +35,16 @@ const StatItem: React.FC<StatItemProps> = ({ number, label, isVisible, delay = 0
         <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-amber-600/20 rounded-2xl blur-xl scale-110 group-hover:scale-125 transition-transform duration-500" />
         
         {/* Main container */}
-        <div className="relative bg-slate-800/50 backdrop-blur-sm border border-yellow-500/20 rounded-2xl p-8 hover:border-yellow-500/40 transition-all duration-500 group-hover:transform group-hover:scale-105">
+        <div className="relative bg-slate-800/50 backdrop-blur-sm border border-yellow-500/20 rounded-2xl p-6 sm:p-8 hover:border-yellow-500/40 transition-all duration-500 group-hover:transform group-hover:scale-105">
           {/* Number with animation */}
-          <div className="text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">
+          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light sm:font-bold mb-3 sm:mb-4">
             <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent">
               +{count.toLocaleString()}
             </span>
           </div>
           
           {/* Label */}
-          <p className="text-gray-300 text-lg lg:text-xl font-medium leading-tight">
+          <p className="text-gray-300 text-base sm:text-lg lg:text-xl font-light sm:font-medium leading-tight">
             {label}
           </p>
           
@@ -114,18 +114,18 @@ const StatsSection = () => {
 
       <div className="relative z-10 container mx-auto px-4 lg:px-6">
         {/* Section title */}
-        <div className={`text-center mb-16 lg:mb-20 transform transition-all duration-1000 ${
+        <div className={`text-center mb-12 md:mb-16 lg:mb-20 transform transition-all duration-1000 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
-          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light md:font-bold text-white mb-4 md:mb-6 px-4">
             Una primera edición{' '}
-            <span className="text-gradient">épica</span>
+            <span className="text-gradient font-medium md:font-bold">épica</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-600 mx-auto rounded-full" />
+          <div className="w-16 sm:w-20 md:w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-600 mx-auto rounded-full" />
         </div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 px-4 sm:px-0">
           {stats.map((stat, index) => (
             <StatItem
               key={index}

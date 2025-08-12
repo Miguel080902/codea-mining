@@ -9,20 +9,29 @@ const FeaturedSpeakers = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Fallback para mobile: mostrar después de 1 segundo si no se detecta intersección
+    const fallbackTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 1000);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          clearTimeout(fallbackTimer);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1, rootMargin: '50px 0px' }
     );
 
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallbackTimer);
+    };
   }, []);
 
   const speakers = [
@@ -145,9 +154,9 @@ const FeaturedSpeakers = () => {
         ))}
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 lg:px-6">
+      <div className="relative z-10 container mx-auto px-4 lg:px-6">        
         {/* Section Header */}
-        <div className={`text-center mb-16 transform transition-all duration-1000 ${
+        <div className={`text-center mb-12 md:mb-16 transform transition-all duration-1000 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
           <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-bold text-sm mb-6 shadow-lg">
@@ -155,12 +164,12 @@ const FeaturedSpeakers = () => {
             SPEAKERS DE CLASE MUNDIAL
           </div>
           
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light md:font-bold text-white mb-4 md:mb-6 px-4">
             Ponentes{' '}
-            <span className="text-gradient">destacados</span>
+            <span className="text-gradient font-medium md:font-bold">destacados</span>
           </h2>
           
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-6 md:mb-8 px-4 font-light">
             Conoce a los expertos líderes en minería y tecnología que compartieron su conocimiento en el evento
           </p>
           
