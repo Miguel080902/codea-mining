@@ -25,13 +25,13 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 max-w-screen w-full ${
       isScrolled 
         ? 'bg-black/90 backdrop-blur-md border-b border-yellow-500/20 shadow-lg shadow-yellow-500/10' 
         : 'bg-black/60 backdrop-blur-sm border-b border-white/5'
-    }`}>
+    }`} style={{ maxWidth: '100vw' }}>
       {/* Container con padding mejorado para móviles */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex items-center justify-between transition-all duration-300 ${
           isScrolled ? 'h-16 lg:h-20' : 'h-18 lg:h-24'
         }`}>
@@ -51,12 +51,6 @@ const Header = () => {
                   filter: 'brightness(0) saturate(100%) invert(60%) sepia(90%) saturate(2000%) hue-rotate(15deg) brightness(1.2) contrast(1.1)',
                 }}
               />
-            </div>
-            {/* Texto del logo para móviles */}
-            <div className="hidden sm:block">
-              <span className="text-yellow-400 font-bold text-sm lg:text-base">
-                CODEa Mining Fest
-              </span>
             </div>
           </div>
 
