@@ -27,98 +27,85 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'glass border-b border-primary-500/20 shadow-glow-primary' 
+        ? 'bg-black/90 backdrop-blur-md border-b border-yellow-500/20 shadow-lg shadow-yellow-500/10' 
         : 'bg-black/60 backdrop-blur-sm border-b border-white/5'
     }`}>
-      <div className="container">
+      {/* Container con padding mejorado para móviles */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex items-center justify-between transition-all duration-300 ${
-          isScrolled ? 'h-18 lg:h-20' : 'h-20 lg:h-24'
+          isScrolled ? 'h-16 lg:h-20' : 'h-18 lg:h-24'
         }`}>
           
-          {/* Logo with Golden Fill */}
-          <div className="flex items-center space-x-3 group">
+          {/* Logo simplificado y optimizado */}
+          <div className="flex items-center space-x-3 group flex-shrink-0">
             <div className={`relative transition-all duration-300 ${
-              isScrolled ? 'w-12 h-12 lg:w-16 lg:h-16' : 'w-16 h-16 lg:w-20 lg:h-20'
+              isScrolled ? 'w-10 h-10 lg:w-14 lg:h-14' : 'w-12 h-12 lg:w-16 lg:h-16'
             }`}>
-              {/* Logo image with golden fill */}
-              <div className="relative z-10 w-full h-full">
-                <Image
-                  src="/images/LOGO-CODEAMININGFEST-WEB.png"
-                  alt="CODEa Mining Fest"
-                  fill
-                  className="object-contain group-hover:scale-105 transition-transform duration-300"
-                  priority
-                  style={{
-                    filter: 'brightness(0) saturate(100%) invert(60%) sepia(90%) saturate(2000%) hue-rotate(15deg) brightness(1.2) contrast(1.1)',
-                  }}
-                />
-                
-                {/* Golden gradient overlay for the fill effect */}
-                <div 
-                  className="absolute inset-0 bg-gradient-to-br from-yellow-300 via-amber-400 to-yellow-600 opacity-90"
-                  style={{
-                    maskImage: 'url(/images/LOGO-CODEAMININGFEST-WEB.png)',
-                    maskSize: 'contain',
-                    maskRepeat: 'no-repeat',
-                    maskPosition: 'center',
-                    WebkitMaskImage: 'url(/images/LOGO-CODEAMININGFEST-WEB.png)',
-                    WebkitMaskSize: 'contain',
-                    WebkitMaskRepeat: 'no-repeat',
-                    WebkitMaskPosition: 'center',
-                  }}
-                />
-              </div>
+              <Image
+                src="/images/LOGO-CODEAMININGFEST-WEB.png"
+                alt="CODEa Mining Fest"
+                fill
+                className="object-contain group-hover:scale-105 transition-transform duration-300"
+                priority
+                style={{
+                  filter: 'brightness(0) saturate(100%) invert(60%) sepia(90%) saturate(2000%) hue-rotate(15deg) brightness(1.2) contrast(1.1)',
+                }}
+              />
+            </div>
+            {/* Texto del logo para móviles */}
+            <div className="hidden sm:block">
+              <span className="text-yellow-400 font-bold text-sm lg:text-base">
+                CODEa Mining Fest
+              </span>
             </div>
           </div>
 
-          {/* Enhanced Desktop Navigation */}
+          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-2">
             {navItems.map((item, index) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="relative group text-gray-300 hover:text-white px-4 py-2 rounded-xl transition-all duration-300 text-sm font-medium whitespace-nowrap hover:glass-light"
+                className="relative group text-gray-300 hover:text-white px-3 py-2 rounded-lg transition-all duration-300 text-sm font-medium whitespace-nowrap hover:bg-white/5"
               >
                 <span className="relative z-10">{item.label}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600/0 to-mining-600/0 group-hover:from-primary-600/10 group-hover:to-mining-600/10 rounded-xl transition-all duration-300" />
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-amber-500 group-hover:w-full transition-all duration-300" />
               </a>
             ))}
           </nav>
 
-          {/* Enhanced CTA Button with Golden Accent */}
-          <div className="hidden lg:block">
-            <Button variant="primary" size="md" className="relative overflow-hidden bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-black font-semibold shadow-lg hover:shadow-yellow-500/25 transition-all duration-300 group">
-              <span className="relative z-10 flex items-center">
-                <Calendar className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                Próximo evento
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 to-white/20 group-hover:from-white/10 group-hover:to-white/30 transition-all duration-300" />
+          {/* CTA Button mejorado */}
+          <div className="hidden lg:block flex-shrink-0">
+            <Button 
+              variant="primary" 
+              size="md" 
+              className="bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-black font-semibold shadow-lg hover:shadow-yellow-500/25 transition-all duration-300 group"
+            >
+              <Calendar className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+              Próximo evento
             </Button>
           </div>
 
-          {/* Enhanced Mobile Menu Button */}
+          {/* Mobile Menu Button mejorado */}
           <button
-            className="lg:hidden glass-light p-3 rounded-xl text-white hover:text-yellow-400 transition-all duration-300 hover:scale-110 border border-yellow-500/20 hover:border-yellow-400/40"
+            className="lg:hidden p-2 rounded-lg text-white hover:text-yellow-400 transition-all duration-300 hover:bg-white/5 border border-yellow-500/20 hover:border-yellow-400/40 flex-shrink-0"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
           >
-            <div className="relative">
-              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-              <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/0 to-amber-500/0 hover:from-yellow-400/20 hover:to-amber-500/20 rounded-lg transition-all duration-300" />
-            </div>
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
-        {/* Enhanced Mobile Navigation */}
+        {/* Mobile Navigation mejorado */}
         {isMenuOpen && (
-          <div className="lg:hidden py-6 border-t border-yellow-500/20 glass-light backdrop-blur-xl">
+          <div className="lg:hidden py-4 border-t border-yellow-500/20 bg-black/95 backdrop-blur-xl rounded-b-lg mx-[-1rem] px-4">
             <nav className="flex flex-col space-y-1">
               {navItems.map((item, index) => (
                 <a
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="group relative text-gray-300 hover:text-white hover:glass-light rounded-xl transition-all duration-300 px-4 py-3 text-sm font-medium"
+                  className="group relative text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300 px-4 py-3 text-sm font-medium"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-center">
@@ -129,7 +116,7 @@ const Header = () => {
                 </a>
               ))}
               
-              <div className="pt-6 px-4">
+              <div className="pt-4 px-0">
                 <Button 
                   variant="primary" 
                   size="md" 
@@ -145,7 +132,7 @@ const Header = () => {
         )}
       </div>
 
-      {/* Professional Accent Line with Golden Gradient */}
+      {/* Accent Line */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent" />
       
       <style jsx>{`
