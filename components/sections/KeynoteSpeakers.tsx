@@ -45,7 +45,7 @@ const KeynoteSpeakers = () => {
       name: "Gabriel Cubas Glen",
       title: "Gerente Automatización y Tecnología Operacional",
       company: "Maquinarias Perú - KKMP",
-      image: "/images/keynote-gabriel.png",
+      image: "/images/keynotes/keynote-gabriel.png",
       country: "Perú",
       expertise: "Automatización Industrial",
       years: "15+ años"
@@ -55,7 +55,7 @@ const KeynoteSpeakers = () => {
       name: "Alessandra Mandriotti",
       title: "Gerente Corporativo de Transformación, Talento y Tecnología",
       company: "Alpayana",
-      image: "/images/keynote-alessandra.png",
+      image: "/images/keynotes/keynote-alessandra.png",
       country: "Perú",
       expertise: "Transformación Digital",
       years: "12+ años"
@@ -65,7 +65,7 @@ const KeynoteSpeakers = () => {
       name: "Leonardo Almeyda Tejada",
       title: "Ingeniero de Innovación & Transformación Digital",
       company: "Nexa Resources",
-      image: "/images/keynote-leonardo.png",
+      image: "/images/keynotes/keynote-leonardo.png",
       country: "Perú",
       expertise: "Innovación Tecnológica",
       years: "10+ años"
@@ -75,7 +75,7 @@ const KeynoteSpeakers = () => {
       name: "Kevin Renzo Salazar",
       title: "Consultor STEM",
       company: "Pi Data Strategy & Consulting",
-      image: "/images/keynote-kevin.png",
+      image: "/images/keynotes/keynote-kevin.png",
       country: "Perú",
       expertise: "Data Science",
       years: "8+ años"
@@ -85,7 +85,7 @@ const KeynoteSpeakers = () => {
       name: "Felipe Carrillo",
       title: "Superintendente de Laboratorio Geofísico-SAC",
       company: "Compañía Minera",
-      image: "/images/keynote-felipe.png",
+      image: "/images/keynotes/keynote-felipe.png",
       country: "Perú",
       expertise: "Geofísica Aplicada",
       years: "20+ años"
@@ -95,7 +95,7 @@ const KeynoteSpeakers = () => {
       name: "Alexander Chacón Butron",
       title: "Superintendente de Tecnología e Innovación",
       company: "Minera Regional",
-      image: "/images/keynote-alexander.png",
+      image: "/images/keynotes/keynote-alexander.png",
       country: "Perú",
       expertise: "Innovación Minera",
       years: "18+ años"
@@ -105,7 +105,7 @@ const KeynoteSpeakers = () => {
       name: "Cleber da Cunha",
       title: "Expert Associate - Gen AI Adoption en NT1 DATA Perú",
       company: "NT1 DATA",
-      image: "/images/keynote-cleber.png",
+      image: "/images/keynotes/keynote-cleber.png",
       country: "Perú",
       expertise: "Inteligencia Artificial",
       years: "14+ años"
@@ -115,7 +115,7 @@ const KeynoteSpeakers = () => {
       name: "Osvaldo Bascur",
       title: "Principal and Consultant Fellow at DSB Digital LLC",
       company: "DSB Digital",
-      image: "/images/keynote-osvaldo.png",
+      image: "/images/keynotes/keynote-osvaldo.png",
       country: "Perú",
       expertise: "Digitalización Minera",
       years: "25+ años"
@@ -125,7 +125,7 @@ const KeynoteSpeakers = () => {
       name: "María Elena Torres",
       title: "Directora de Innovación Tecnológica",
       company: "Minsur S.A.",
-      image: "/images/keynote-gabriel.png", // Reutilizando imagen
+      image: "/images/keynotes/keynote-gabriel.png", // Reutilizando imagen
       country: "Perú",
       expertise: "Tecnología Minera",
       years: "16+ años"
@@ -135,7 +135,7 @@ const KeynoteSpeakers = () => {
       name: "Roberto Silva Mendez",
       title: "Gerente de Transformación Digital",
       company: "Southern Peru",
-      image: "/images/keynote-leonardo.png", // Reutilizando imagen
+      image: "/images/keynotes/keynote-leonardo.png", // Reutilizando imagen
       country: "Perú",
       expertise: "Digitalización",
       years: "13+ años"
@@ -146,7 +146,7 @@ const KeynoteSpeakers = () => {
       name: "Ana Patricia Quispe",
       title: "Especialista en Automatización Industrial",
       company: "Volcan Compañía Minera",
-      image: "/images/keynote-alessandra.png", // Reutilizando imagen
+      image: "/images/keynotes/keynote-alessandra.png", // Reutilizando imagen
       country: "Perú",
       expertise: "Automatización",
       years: "11+ años"
@@ -156,7 +156,7 @@ const KeynoteSpeakers = () => {
       name: "Carlos Alberto Ramos",
       title: "Head of Digital Innovation",
       company: "Antamina",
-      image: "/images/keynote-kevin.png", // Reutilizando imagen
+      image: "/images/keynotes/keynote-kevin.png", // Reutilizando imagen
       country: "Perú",
       expertise: "Innovación Digital",
       years: "17+ años"
@@ -166,7 +166,7 @@ const KeynoteSpeakers = () => {
       name: "Diego Fernández Castro",
       title: "Superintendente de Sistemas",
       company: "Cerro Verde",
-      image: "/images/keynote-felipe.png", // Reutilizando imagen
+      image: "/images/keynotes/keynote-felipe.png", // Reutilizando imagen
       country: "Perú",
       expertise: "Sistemas Integrados",
       years: "19+ años"
@@ -176,7 +176,7 @@ const KeynoteSpeakers = () => {
       name: "Lucía Vargas Herrera",
       title: "Gerente de Tecnología e Innovación",
       company: "Buenaventura",
-      image: "/images/keynote-alexander.png", // Reutilizando imagen
+      image: "/images/keynotes/keynote-alexander.png", // Reutilizando imagen
       country: "Perú",
       expertise: "Tech Innovation",
       years: "14+ años"
@@ -186,7 +186,7 @@ const KeynoteSpeakers = () => {
       name: "Miguel Angel Soto",
       title: "Director de Transformación Digital",
       company: "Las Bambas",
-      image: "/images/keynote-cleber.png", // Reutilizando imagen
+      image: "/images/keynotes/keynote-cleber.png", // Reutilizando imagen
       country: "Perú",
       expertise: "Transformación",
       years: "22+ años"
@@ -196,7 +196,7 @@ const KeynoteSpeakers = () => {
       name: "Patricia Morales Luna",
       title: "Especialista en AI & Machine Learning",
       company: "Hochschild Mining",
-      image: "/images/keynote-osvaldo.png", // Reutilizando imagen
+      image: "/images/keynotes/keynote-osvaldo.png", // Reutilizando imagen
       country: "Perú",
       expertise: "Machine Learning",
       years: "9+ años"
@@ -206,7 +206,7 @@ const KeynoteSpeakers = () => {
       name: "Ricardo Peña Valdez",
       title: "Jefe de Innovación Operacional",
       company: "Glencore Peru",
-      image: "/images/keynote-gabriel.png", // Reutilizando imagen
+      image: "/images/keynotes/keynote-gabriel.png", // Reutilizando imagen
       country: "Perú",
       expertise: "Innovación Operacional",
       years: "18+ años"
@@ -216,7 +216,7 @@ const KeynoteSpeakers = () => {
       name: "Sofia Gutierrez Rojas",
       title: "Consultora Senior en Digitalización",
       company: "Yanacocha",
-      image: "/images/keynote-alessandra.png", // Reutilizando imagen
+      image: "/images/keynotes/keynote-alessandra.png", // Reutilizando imagen
       country: "Perú",
       expertise: "Consultoría Digital",
       years: "12+ años"
@@ -226,7 +226,7 @@ const KeynoteSpeakers = () => {
       name: "Fernando Acosta Ruiz",
       title: "Gerente de Tecnologías Emergentes",
       company: "Milpo",
-      image: "/images/keynote-leonardo.png", // Reutilizando imagen
+      image: "/images/keynotes/keynote-leonardo.png", // Reutilizando imagen
       country: "Perú",
       expertise: "Tecnologías Emergentes",
       years: "15+ años"
@@ -236,7 +236,7 @@ const KeynoteSpeakers = () => {
       name: "Claudia Mendoza Silva",
       title: "Directora de Estrategia Digital",
       company: "Pan American Silver",
-      image: "/images/keynote-kevin.png", // Reutilizando imagen
+      image: "/images/keynotes/keynote-kevin.png", // Reutilizando imagen
       country: "Perú",
       expertise: "Estrategia Digital",
       years: "16+ años"

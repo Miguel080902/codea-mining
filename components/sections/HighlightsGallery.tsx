@@ -30,28 +30,28 @@ const HighlightsGallery = () => {
       id: 1,
       title: "Panel de Expertos",
       description: "Mesa redonda con líderes de la industria minera",
-      image: "/images/panel-discussion.jpg",
+      image: "/images/highlights/panel-discussion.jpg",
       type: "panel"
     },
     {
       id: 2,
       title: "Presentación Magistral",
       description: "Conferencia sobre el futuro de la minería digital",
-      image: "/images/keynote-speaker.jpg",
+      image: "/images/keynotes/keynote-gabriel.png",
       type: "keynote"
     },
     {
       id: 3,
       title: "Networking Session",
       description: "Intercambio de ideas entre profesionales",
-      image: "/images/networking.jpg",
+      image: "/images/contact/conference-audience.png",
       type: "networking"
     },
     {
       id: 4,
       title: "Demo Tecnológica",
       description: "Presentación de soluciones innovadoras",
-      image: "/images/tech-demo.jpg",
+      image: "/images/about/about-1.jpg",
       type: "demo"
     }
   ];

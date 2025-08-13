@@ -59,7 +59,7 @@ const Footer = () => {
             <div className="lg:col-span-1">
               <div className="mb-6">
                 <Image
-                  src="/images/logo-codea-white.png"
+                  src="/images/LOGO-CODEAMININGFEST-WEB.png"
                   alt="CODEa Mining Fest"
                   width={180}
                   height={90}

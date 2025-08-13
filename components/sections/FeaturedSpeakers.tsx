@@ -41,7 +41,7 @@ const FeaturedSpeakers = () => {
       title: "Ingeniera en Minas",
       subtitle: "Líder de planificación, supervisión y desarrollo de planes mineros",
       company: "Minera ABC",
-      image: "/images/speaker-christa.png",
+      image: "/images/speakers/speaker-christa.png",
       rating: 4.9,
       talks: 3,
       country: "Perú"
@@ -52,7 +52,7 @@ const FeaturedSpeakers = () => {
       title: "Sub Grte. Técnico en procesos metalúrgicos",
       subtitle: "MEPSA Aceros Chilea SAC",
       company: "MEPSA",
-      image: "/images/speaker-hyder.png",
+      image: "/images/speakers/speaker-hyder.png",
       rating: 4.8,
       talks: 2,
       country: "Chile"
@@ -63,7 +63,7 @@ const FeaturedSpeakers = () => {
       title: "Gerente General IMSS",
       subtitle: "by Latam",
       company: "IMSS Latam",
-      image: "/images/speaker-christian.png",
+      image: "/images/speakers/speaker-christian.png",
       rating: 4.9,
       talks: 4,
       country: "Colombia"
@@ -74,7 +74,7 @@ const FeaturedSpeakers = () => {
       title: "Ingeniero de Innovación & Transformación Digital",
       subtitle: "Nexa Resources",
       company: "Nexa Resources",
-      image: "/images/speaker-leonardo.png",
+      image: "/images/speakers/speaker-leonardo.png",
       rating: 4.7,
       talks: 2,
       country: "Brasil"
@@ -85,7 +85,7 @@ const FeaturedSpeakers = () => {
       title: "Ingeniero de Innovación & Transformación Digital",
       subtitle: "Nexa Resources",
       company: "Nexa Resources",
-      image: "/images/speaker-leonardo.png",
+      image: "/images/speakers/speaker-leonardo.png",
       rating: 4.7,
       talks: 2,
       country: "Brasil"
@@ -96,7 +96,7 @@ const FeaturedSpeakers = () => {
       title: "Ingeniero de Innovación & Transformación Digital",
       subtitle: "Nexa Resources",
       company: "Nexa Resources",
-      image: "/images/speaker-leonardo.png",
+      image: "/images/speakers/speaker-leonardo.png",
       rating: 4.7,
       talks: 2,
       country: "Brasil"
@@ -107,7 +107,7 @@ const FeaturedSpeakers = () => {
       title: "Ingeniero de Innovación & Transformación Digital",
       subtitle: "Nexa Resources",
       company: "Nexa Resources",
-      image: "/images/speaker-leonardo.png",
+      image: "/images/speakers/speaker-leonardo.png",
       rating: 4.7,
       talks: 2,
       country: "Brasil"
@@ -118,7 +118,7 @@ const FeaturedSpeakers = () => {
       title: "Ingeniero de Innovación & Transformación Digital",
       subtitle: "Nexa Resources",
       company: "Nexa Resources",
-      image: "/images/speaker-leonardo.png",
+      image: "/images/speakers/speaker-leonardo.png",
       rating: 4.7,
       talks: 2,
       country: "Brasil"
