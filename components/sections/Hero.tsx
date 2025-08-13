@@ -45,7 +45,7 @@ const Hero = () => {
         <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl md:max-w-4xl mx-auto mb-8 md:mb-12 leading-relaxed font-light px-2 sm:px-0">
           El evento que reunió a profesionales, empresas, autoridades y estudiantes para explorar el futuro de la
           minería en Latinoamérica. Más de 300 asistentes participaron de una jornada intensa con charlas técnicas,
-          innovación, networking, mesas redondas y un pitch de proyectos CODEaa.
+          innovación, networking, mesas redondas y un pitch de proyectos CODEaaaaaa.
         </p>
 
         {/* CTA Buttons */}
