@@ -4,24 +4,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
-import { Menu, X, Calendar, Sparkles } from 'lucide-react';
+import { Menu, X, Calendar, Sparkles, ChevronDown } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [isEventosDropdownOpen, setIsEventosDropdownOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
   const navItems = [
     { label: '¿Qué es el CMF?', href: '#que-es' },
     { label: 'Lo que pasó', href: '#lo-que-paso' },
-    { label: 'Entrevistas', href: '#entrevistas' },
+    { label: 'Entrevistas', href: '#entrevistas' }
+  ];
+
+  const eventosItems = [
     { label: 'Agenda', href: '#agenda' },
     { label: 'Ponentes', href: '#ponentes' },
-    { label: 'Keynotes', href: '#keynotes' },
-    { label: 'Testimonios', href: '#testimonios' },
-    { label: 'Galería', href: '/galeria' }
+    { label: 'Keynotes', href: '#keynotes' }
   ];
 
   useEffect(() => {
@@ -84,20 +86,29 @@ const Header = () => {
     }`} style={{ maxWidth: '100vw' }}>
       {/* Container con padding mejorado para móviles */}
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`flex items-center justify-between transition-all duration-300 ${
+        <div className={`flex items-center justify-between lg:justify-center lg:gap-16 transition-all duration-300 ${
           isScrolled ? 'h-16 lg:h-20' : 'h-18 lg:h-24'
         }`}>
           
-          {/* Logo simplificado y optimizado */}
+          {/* Logo responsivo - favicon en móvil, logo completo en desktop */}
           <div className="flex items-center space-x-3 group flex-shrink-0">
             <div className={`relative transition-all duration-300 ${
               isScrolled ? 'w-10 h-10 lg:w-14 lg:h-14' : 'w-12 h-12 lg:w-16 lg:h-16'
             }`}>
+              {/* Logo para móvil - favicon */}
+              <Image
+                src="/images/FAVICON-CODEAMININGFEST.png"
+                alt="CODEa Mining Fest"
+                fill
+                className="object-contain group-hover:scale-105 transition-transform duration-300 lg:hidden"
+                priority
+              />
+              {/* Logo para desktop - logo completo */}
               <Image
                 src="/images/LOGO-CODEAMININGFEST-WEB.png"
                 alt="CODEa Mining Fest"
                 fill
-                className="object-contain group-hover:scale-105 transition-transform duration-300"
+                className="object-contain group-hover:scale-105 transition-transform duration-300 hidden lg:block"
                 priority
                 style={{
                   filter: 'brightness(0) saturate(100%) invert(60%) sepia(90%) saturate(2000%) hue-rotate(15deg) brightness(1.2) contrast(1.1)',
@@ -129,6 +140,91 @@ const Header = () => {
                 </button>
               );
             })}
+            
+            {/* Eventos Dropdown */}
+            <div className="relative group">
+              <button
+                onClick={() => setIsEventosDropdownOpen(!isEventosDropdownOpen)}
+                onMouseEnter={() => setIsEventosDropdownOpen(true)}
+                className={`relative group px-3 py-2 rounded-lg transition-all duration-300 text-sm font-medium whitespace-nowrap hover:bg-white/5 flex items-center ${
+                  eventosItems.some(item => pathname === '/' && item.href.startsWith('#') && activeSection === item.href.substring(1))
+                    ? 'text-yellow-400 bg-yellow-500/10' 
+                    : 'text-gray-300 hover:text-white'
+                }`}
+              >
+                <span className="relative z-10">Eventos</span>
+                <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-300 ${
+                  isEventosDropdownOpen ? 'rotate-180' : ''
+                }`} />
+                <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-300 ${
+                  eventosItems.some(item => pathname === '/' && item.href.startsWith('#') && activeSection === item.href.substring(1)) ? 'w-full' : 'w-0 group-hover:w-full'
+                }`} />
+              </button>
+              
+              {/* Dropdown Menu */}
+              {isEventosDropdownOpen && (
+                <div 
+                  className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-xl border border-yellow-500/20 rounded-xl shadow-2xl z-50"
+                  onMouseLeave={() => setIsEventosDropdownOpen(false)}
+                >
+                  {eventosItems.map((item, index) => {
+                    const isActive = pathname === '/' && item.href.startsWith('#') && activeSection === item.href.substring(1);
+                    
+                    return (
+                      <button
+                        key={item.label}
+                        onClick={() => {
+                          handleNavClick(item.href);
+                          setIsEventosDropdownOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-3 transition-all duration-300 text-sm font-medium hover:bg-white/10 first:rounded-t-xl last:rounded-b-xl ${
+                          isActive 
+                            ? 'text-yellow-400 bg-yellow-500/10' 
+                            : 'text-gray-300 hover:text-white'
+                        }`}
+                      >
+                        <div className="flex items-center">
+                          <Sparkles className={`w-4 h-4 mr-3 text-yellow-400 transition-all duration-300 ${
+                            isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                          }`} />
+                          <span>{item.label}</span>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+            
+            {/* Testimonios item */}
+            <button
+              onClick={() => handleNavClick('#testimonios')}
+              className={`relative group px-3 py-2 rounded-lg transition-all duration-300 text-sm font-medium whitespace-nowrap hover:bg-white/5 ${
+                pathname === '/' && activeSection === 'testimonios'
+                  ? 'text-yellow-400 bg-yellow-500/10' 
+                  : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              <span className="relative z-10">Testimonios</span>
+              <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-300 ${
+                pathname === '/' && activeSection === 'testimonios' ? 'w-full' : 'w-0 group-hover:w-full'
+              }`} />
+            </button>
+            
+            {/* Galería item */}
+            <button
+              onClick={() => handleNavClick('/galeria')}
+              className={`relative group px-3 py-2 rounded-lg transition-all duration-300 text-sm font-medium whitespace-nowrap hover:bg-white/5 ${
+                pathname === '/galeria'
+                  ? 'text-yellow-400 bg-yellow-500/10' 
+                  : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              <span className="relative z-10">Galería</span>
+              <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-300 ${
+                pathname === '/galeria' ? 'w-full' : 'w-0 group-hover:w-full'
+              }`} />
+            </button>
           </nav>
 
           {/* CTA Button mejorado */}
@@ -185,6 +281,81 @@ const Header = () => {
                   </button>
                 );
               })}
+              
+              {/* Eventos Section en Mobile */}
+              <div className="mt-2">
+                <div className="px-4 py-2 text-xs font-semibold text-yellow-400 uppercase tracking-wider">
+                  Eventos
+                </div>
+                {eventosItems.map((item, index) => {
+                  const isActive = pathname === '/' && item.href.startsWith('#') && activeSection === item.href.substring(1);
+                  
+                  return (
+                    <button
+                      key={item.label}
+                      onClick={() => handleNavClick(item.href)}
+                      className={`group relative rounded-lg transition-all duration-300 px-4 py-3 text-sm font-medium ml-4 w-[calc(100%-1rem)] ${
+                        isActive 
+                          ? 'text-yellow-400 bg-yellow-500/10' 
+                          : 'text-gray-300 hover:text-white hover:bg-white/5'
+                      }`}
+                      style={{ animationDelay: `${(navItems.length + index + 1) * 100}ms` }}
+                    >
+                      <div className="flex items-center">
+                        <Sparkles className={`w-4 h-4 mr-3 text-yellow-400 transition-all duration-300 ${
+                          isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                        }`} />
+                        <span>{item.label}</span>
+                      </div>
+                      <div className={`absolute left-0 top-1/2 transform -translate-y-1/2 h-6 bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-300 rounded-r ${
+                        isActive ? 'w-1' : 'w-0 group-hover:w-1'
+                      }`} />
+                    </button>
+                  );
+                })}
+              </div>
+              
+              {/* Testimonios item en Mobile */}
+              <button
+                onClick={() => handleNavClick('#testimonios')}
+                className={`group relative rounded-lg transition-all duration-300 px-4 py-3 text-sm font-medium ${
+                  pathname === '/' && activeSection === 'testimonios'
+                    ? 'text-yellow-400 bg-yellow-500/10' 
+                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                }`}
+                style={{ animationDelay: `${(navItems.length + eventosItems.length + 1) * 100}ms` }}
+              >
+                <div className="flex items-center">
+                  <Sparkles className={`w-4 h-4 mr-3 text-yellow-400 transition-all duration-300 ${
+                    pathname === '/' && activeSection === 'testimonios' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`} />
+                  <span>Testimonios</span>
+                </div>
+                <div className={`absolute left-0 top-1/2 transform -translate-y-1/2 h-6 bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-300 rounded-r ${
+                  pathname === '/' && activeSection === 'testimonios' ? 'w-1' : 'w-0 group-hover:w-1'
+                }`} />
+              </button>
+              
+              {/* Galería item en Mobile */}
+              <button
+                onClick={() => handleNavClick('/galeria')}
+                className={`group relative rounded-lg transition-all duration-300 px-4 py-3 text-sm font-medium ${
+                  pathname === '/galeria'
+                    ? 'text-yellow-400 bg-yellow-500/10' 
+                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                }`}
+                style={{ animationDelay: `${(navItems.length + eventosItems.length + 2) * 100}ms` }}
+              >
+                <div className="flex items-center">
+                  <Sparkles className={`w-4 h-4 mr-3 text-yellow-400 transition-all duration-300 ${
+                    pathname === '/galeria' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`} />
+                  <span>Galería</span>
+                </div>
+                <div className={`absolute left-0 top-1/2 transform -translate-y-1/2 h-6 bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-300 rounded-r ${
+                  pathname === '/galeria' ? 'w-1' : 'w-0 group-hover:w-1'
+                }`} />
+              </button>
               
               <div className="pt-4 px-0">
                 <Button 

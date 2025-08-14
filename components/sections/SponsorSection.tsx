@@ -96,7 +96,7 @@ const SponsorsSection = () => {
             SPONSORS OFICIALES
           </div>
           
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-800 mb-6">
             Auspiciadores{' '}
             <span className="bg-gradient-to-r from-yellow-500 to-amber-600 bg-clip-text text-transparent">Diamante</span>
           </h2>

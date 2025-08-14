@@ -85,7 +85,7 @@ const HighlightsGallery = () => {
         <div className={`text-center mb-16 transform transition-all duration-1000 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6">
             Revive los momentos más{' '}
             <span className="text-gradient">impactantes</span> del evento
           </h2>

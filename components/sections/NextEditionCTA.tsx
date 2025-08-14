@@ -295,10 +295,10 @@ Sistema Automatizado CODEa Mining Fest`
     <section 
       id="proxima-edicion"
       ref={sectionRef}
-      className="relative overflow-hidden"
+      className="relative overflow-hidden w-full max-w-full"
     >
       {/* Hero Contact Section */}
-      <div className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-white py-20 lg:py-32">
+      <div className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-white py-20 lg:py-32 w-full max-w-full overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(30)].map((_, i) => (
@@ -316,8 +316,8 @@ Sistema Automatizado CODEa Mining Fest`
           ))}
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 lg:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full max-w-full">
             
             {/* Content Side */}
             <div className={`transform transition-all duration-1000 ${
@@ -328,7 +328,7 @@ Sistema Automatizado CODEa Mining Fest`
                 PRÓXIMO EVENTO 2026
               </div>
 
-              <h2 className="text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 leading-tight">
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
                   Contáctanos
                 </span>
@@ -354,34 +354,34 @@ Sistema Automatizado CODEa Mining Fest`
               </div>
 
               {/* Benefits Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 mb-10">
                 {benefits.map((benefit, index) => {
                   const Icon = benefit.icon;
                   return (
                     <div 
                       key={index}
-                      className={`flex items-center space-x-3 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/40 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 ${
+                      className={`flex items-center space-x-2 sm:space-x-3 p-3 sm:p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/40 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 ${
                         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                       }`}
                       style={{ transitionDelay: `${index * 200}ms` }}
                     >
-                      <Icon className={`w-6 h-6 ${benefit.color}`} />
-                      <span className="text-gray-700 font-medium text-sm">{benefit.text}</span>
+                      <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${benefit.color} flex-shrink-0`} />
+                      <span className="text-gray-700 font-medium text-xs sm:text-sm">{benefit.text}</span>
                     </div>
                   );
                 })}
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
                 {stats.map((stat, index) => {
                   const Icon = stat.icon;
                   return (
                     <div key={index} className="text-center">
-                      <div className={`w-12 h-12 bg-gradient-to-r ${stat.color} rounded-full flex items-center justify-center mx-auto mb-2 shadow-lg`}>
-                        <Icon className="w-6 h-6 text-white" />
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${stat.color} rounded-full flex items-center justify-center mx-auto mb-2 shadow-lg`}>
+                        <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                       </div>
-                      <div className="text-2xl font-bold text-gray-800">{stat.value}</div>
+                      <div className="text-lg sm:text-2xl font-bold text-gray-800">{stat.value}</div>
                       <div className="text-xs text-gray-600">{stat.label}</div>
                     </div>
                   );
@@ -433,7 +433,7 @@ Sistema Automatizado CODEa Mining Fest`
       </div>
 
       {/* Main Form Section */}
-      <div className="relative bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-900">
+      <div className="relative bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-900 w-full max-w-full overflow-hidden">
         {/* Background with conference image */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/70" />
@@ -461,7 +461,7 @@ Sistema Automatizado CODEa Mining Fest`
           ))}
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 lg:px-6 py-24">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-24">
           
           {/* Section Header */}
           <div className={`text-center mb-16 transform transition-all duration-1000 delay-500 ${
@@ -472,7 +472,7 @@ Sistema Automatizado CODEa Mining Fest`
               <span className="text-yellow-400 font-bold text-lg">Sé parte del próximo CODEa Mining Fest</span>
             </div>
             
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-8 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-8 leading-tight">
               ¿Listo para transformar
               <br />
               <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
@@ -509,10 +509,10 @@ Sistema Automatizado CODEa Mining Fest`
                     </div>
                   )}
 
-                  <form onSubmit={handleSubmit} className="space-y-8">
+                  <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8 w-full max-w-full">
                     
                     {/* Name Fields Row */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                       <div className="space-y-2">
                         <div className="relative group">
                           <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-yellow-400 transition-colors duration-300" />
@@ -592,21 +592,21 @@ Sistema Automatizado CODEa Mining Fest`
 
                     {/* Phone Field with Country Selector */}
                     <div className="space-y-2">
-                      <div className="flex gap-3">
+                      <div className="flex gap-2 sm:gap-3">
                         {/* Country Selector with Flag Display */}
-                        <div ref={countryDropdownRef} className="relative group flex-shrink-0 w-40">
+                        <div ref={countryDropdownRef} className="relative group flex-shrink-0 w-32 sm:w-40">
                           {/* Selected Country Display */}
                           <button
                             type="button"
                             onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
-                            className="w-full pl-3 pr-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 focus:border-yellow-500 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300 text-sm cursor-pointer flex items-center gap-2"
+                            className="w-full pl-2 sm:pl-3 pr-6 sm:pr-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 focus:border-yellow-500 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300 text-xs sm:text-sm cursor-pointer flex items-center gap-1 sm:gap-2"
                           >
-                            <FlagIcon countryCode={formData.paisBandera} className="w-6 h-4 flex-shrink-0" />
+                            <FlagIcon countryCode={formData.paisBandera} className="w-4 h-3 sm:w-6 sm:h-4 flex-shrink-0" />
                             <span className="text-xs truncate">{formData.paisCodigo}</span>
                           </button>
                           
                           {/* Custom dropdown arrow */}
-                          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                          <div className="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
                             <svg className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${isCountryDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
@@ -614,17 +614,17 @@ Sistema Automatizado CODEa Mining Fest`
 
                           {/* Dropdown Options */}
                           {isCountryDropdownOpen && (
-                            <div className="absolute top-full left-0 right-0 mt-2 bg-slate-800/95 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
+                            <div className="absolute top-full left-0 right-0 mt-2 bg-slate-800/95 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl z-50 max-h-48 sm:max-h-60 overflow-y-auto">
                               {paises.map((pais) => (
                                 <button
                                   key={pais.codigo + pais.nombre}
                                   type="button"
                                   onClick={() => handlePaisChange(pais)}
-                                  className="w-full px-3 py-3 text-left hover:bg-white/10 transition-colors duration-200 flex items-center gap-3 text-sm text-white first:rounded-t-xl last:rounded-b-xl"
+                                  className="w-full px-2 sm:px-3 py-2 sm:py-3 text-left hover:bg-white/10 transition-colors duration-200 flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-white first:rounded-t-xl last:rounded-b-xl"
                                 >
-                                  <FlagIcon countryCode={pais.bandera} className="w-6 h-4 flex-shrink-0" />
-                                  <span className="text-xs text-gray-300 font-mono min-w-[40px]">{pais.codigo}</span>
-                                  <span className="text-sm truncate">{pais.nombre}</span>
+                                  <FlagIcon countryCode={pais.bandera} className="w-4 h-3 sm:w-6 sm:h-4 flex-shrink-0" />
+                                  <span className="text-xs text-gray-300 font-mono min-w-[30px] sm:min-w-[40px]">{pais.codigo}</span>
+                                  <span className="text-xs sm:text-sm truncate">{pais.nombre}</span>
                                 </button>
                               ))}
                             </div>
@@ -721,18 +721,18 @@ Sistema Automatizado CODEa Mining Fest`
                       <Button 
                         type="submit" 
                         disabled={isSubmitting}
-                        className="relative w-full sm:w-auto min-w-[300px] h-14 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 hover:from-yellow-400 hover:via-orange-400 hover:to-red-400 text-black font-bold text-lg rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none group"
+                        className="relative w-full max-w-full h-12 sm:h-14 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 hover:from-yellow-400 hover:via-orange-400 hover:to-red-400 text-black font-bold text-sm sm:text-lg rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none group"
                       >
                         {isSubmitting ? (
-                          <div className="flex items-center">
-                            <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin mr-3" />
-                            Enviando registro...
+                          <div className="flex items-center justify-center">
+                            <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-black/30 border-t-black rounded-full animate-spin mr-2 sm:mr-3" />
+                            <span className="text-xs sm:text-sm">Enviando registro...</span>
                           </div>
                         ) : (
-                          <div className="flex items-center">
-                            <Send className="w-6 h-6 mr-3 group-hover:translate-x-1 transition-transform duration-300" />
-                            Enviar mis datos
-                            <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
+                          <div className="flex items-center justify-center">
+                            <Send className="w-4 h-4 sm:w-6 sm:h-6 mr-2 sm:mr-3 group-hover:translate-x-1 transition-transform duration-300" />
+                            <span className="text-xs sm:text-base">Enviar mis datos</span>
+                            <ArrowRight className="w-4 h-4 sm:w-6 sm:h-6 ml-2 sm:ml-3 group-hover:translate-x-1 transition-transform duration-300" />
                           </div>
                         )}
                       </Button>
@@ -755,7 +755,7 @@ Sistema Automatizado CODEa Mining Fest`
                 <div className="w-24 h-24 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8 animate-bounce shadow-2xl">
                   <CheckCircle className="w-12 h-12 text-white" />
                 </div>
-                <h3 className="text-4xl font-bold text-white mb-6">¡Registro Exitoso! 🎉</h3>
+                <h3 className="text-3xl sm:text-4xl font-bold text-white mb-6">¡Registro Exitoso! 🎉</h3>
                 <div className="space-y-4 mb-8">
                   <p className="text-xl text-green-300 font-medium">
                     ✅ Tu registro ha sido enviado correctamente

@@ -65,7 +65,6 @@ const Footer = () => {
                   height={90}
                   className="object-contain mb-4"
                 />
-                <h3 className="text-lg sm:text-xl font-medium sm:font-bold text-white mb-3">CODEa Mining Fest</h3>
                 <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-light">
                   El evento líder en innovación minera de Latinoamérica. Conectando profesionales, 
                   empresas y estudiantes para explorar el futuro de la industria.
@@ -117,7 +116,6 @@ const Footer = () => {
                   <MapPin className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-white font-medium">Lima, Perú</p>
-                    <p className="text-gray-400 text-sm">Universidad Nacional de Ingeniería</p>
                   </div>
                 </div>
                 
@@ -144,7 +142,7 @@ const Footer = () => {
             <div className="lg:col-span-1">
               <h4 className="text-lg font-bold text-white mb-6 flex items-center">
                 <Building2 className="w-5 h-5 mr-2 text-yellow-400" />
-                Organiza
+                Empresa
               </h4>
               
               <div className="mb-6">
@@ -154,7 +152,6 @@ const Footer = () => {
                   </div>
                   <div>
                     <p className="text-white font-bold">CODEa UNI</p>
-                    <p className="text-gray-400 text-sm">Centro de Estudios</p>
                   </div>
                 </div>
                 <p className="text-gray-400 text-sm leading-relaxed">

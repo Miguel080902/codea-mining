@@ -85,7 +85,7 @@ const AboutSection = () => {
           }`}>
             {/* Section title */}
             <div className="mb-8">
-              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
                 ¿Qué es el{' '}
                 <span className="text-gradient">CODEa Mining Fest</span>?
               </h2>
