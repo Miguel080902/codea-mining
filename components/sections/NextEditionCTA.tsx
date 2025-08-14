@@ -397,7 +397,7 @@ Sistema Automatizado CODEa Mining Fest`
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-2xl scale-110 group-hover:scale-125 transition-transform duration-700" />
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/20">
                   <Image
-                    src="/images/mining-engineer-woman.png"
+                    src="/images/contact/mining-engineer-woman.png"
                     alt="Ingeniera de minas profesional"
                     width={600}
                     height={700}
@@ -438,7 +438,7 @@ Sistema Automatizado CODEa Mining Fest`
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/70" />
           <Image
-            src="/images/conference-audience.png"
+            src="/images/contact/conference-audience.png"
             alt="Conference audience"
             fill
             className="object-cover opacity-30"
