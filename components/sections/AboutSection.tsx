@@ -130,7 +130,17 @@ const AboutSection = () => {
             <div className={`transform transition-all duration-1000 delay-500 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
             }`}>
-              <Button variant="primary" size="lg" className="group">
+              <Button 
+                variant="primary" 
+                size="lg" 
+                className="group"
+                onClick={() => {
+                  const element = document.getElementById('lo-que-paso');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 Conoce más sobre el evento
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>

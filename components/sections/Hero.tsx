@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
@@ -50,10 +51,30 @@ const Hero = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 md:mb-16 px-4 sm:px-0">
-          <Button variant="primary" size="md" className="w-full sm:w-auto px-6 py-3 text-sm sm:text-base">
+          <Button 
+            variant="primary" 
+            size="md" 
+            className="w-full sm:w-auto px-6 py-3 text-sm sm:text-base"
+            onClick={() => {
+              const element = document.getElementById('proxima-edicion');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
             Participar del próximo evento
           </Button>
-          <Button variant="outline" size="md" className="w-full sm:w-auto px-6 py-3 text-sm sm:text-base">
+          <Button 
+            variant="outline" 
+            size="md" 
+            className="w-full sm:w-auto px-6 py-3 text-sm sm:text-base"
+            onClick={() => {
+              const element = document.getElementById('proxima-edicion');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
             Convertirse en patrocinador
           </Button>
         </div>
