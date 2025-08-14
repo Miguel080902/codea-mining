@@ -293,6 +293,7 @@ Sistema Automatizado CODEa Mining Fest`
 
   return (
     <section 
+      id="proxima-edicion"
       ref={sectionRef}
       className="relative overflow-hidden"
     >

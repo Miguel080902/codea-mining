@@ -262,6 +262,7 @@ const KeynoteSpeakers = () => {
 
   return (
     <section 
+      id="keynotes"
       ref={sectionRef}
       className="relative py-20 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 overflow-hidden"
     >

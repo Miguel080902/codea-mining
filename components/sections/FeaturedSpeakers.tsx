@@ -127,6 +127,7 @@ const FeaturedSpeakers = () => {
 
   return (
     <section 
+      id="ponentes"
       ref={sectionRef}
       className="relative py-20 lg:py-32 bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 overflow-hidden"
     >

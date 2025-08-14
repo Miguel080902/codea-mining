@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "CODEa Mining Fest 2025",
   description: "El evento que reúne a profesionales, empresas, autoridades y estudiantes para explorar el futuro de la minería en Latinoamérica.",
   icons: {
-    icon: "images/FAVICON-CODEAMININGFEST.png",
+    icon: "/images/FAVICON-CODEAMININGFEST.png",
     apple: "/images/FAVICON-CODEAMININGFEST.png",
   },
 };

@@ -65,6 +65,7 @@ const AboutSection = () => {
 
   return (
     <section 
+      id="que-es"
       ref={sectionRef}
       className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-950 via-slate-900 to-blue-950 overflow-hidden"
     >

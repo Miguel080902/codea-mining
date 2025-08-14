@@ -59,6 +59,7 @@ const SponsorsSection = () => {
 
   return (
     <section 
+      id="sponsors"
       ref={sectionRef}
       className="relative py-20 lg:py-32 bg-gradient-to-b from-gray-50 to-white overflow-hidden"
     >

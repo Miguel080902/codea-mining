@@ -1,28 +1,80 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter, usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 import { Menu, X, Calendar, Sparkles } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+  const router = useRouter();
+  const pathname = usePathname();
 
   const navItems = [
     { label: '¿Qué es el CMF?', href: '#que-es' },
     { label: 'Lo que pasó', href: '#lo-que-paso' },
-    { label: 'Próxima edición', href: '#proxima-edicion' },
-    { label: 'Ponentes destacados', href: '#ponentes' }
+    { label: 'Entrevistas', href: '#entrevistas' },
+    { label: 'Agenda', href: '#agenda' },
+    { label: 'Ponentes', href: '#ponentes' },
+    { label: 'Keynotes', href: '#keynotes' },
+    { label: 'Testimonios', href: '#testimonios' },
+    { label: 'Galería', href: '/galeria' }
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Solo detectar sección activa si estamos en la página principal
+      if (pathname === '/') {
+        const sections = ['que-es', 'lo-que-paso', 'estadisticas', 'entrevistas', 'agenda', 'ponentes', 'keynotes', 'sponsors', 'testimonios', 'proxima-edicion'];
+        
+        for (const sectionId of sections) {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 100 && rect.bottom >= 100) {
+              setActiveSection(sectionId);
+              break;
+            }
+          }
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [pathname]);
+
+  const handleNavClick = (href: string) => {
+    setIsMenuOpen(false);
+    
+    if (href.startsWith('#')) {
+      // Si estamos en la página de galería, primero navegar a home
+      if (pathname === '/galeria') {
+        router.push('/');
+        // Esperar un poco para que la página cargue antes de hacer scroll
+        setTimeout(() => {
+          const element = document.getElementById(href.substring(1));
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // Si ya estamos en home, solo hacer scroll
+        const element = document.getElementById(href.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    } else {
+      // Para enlaces externos como /galeria
+      router.push(href);
+    }
+  };
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 max-w-screen w-full ${
@@ -56,16 +108,27 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-2">
-            {navItems.map((item, index) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="relative group text-gray-300 hover:text-white px-3 py-2 rounded-lg transition-all duration-300 text-sm font-medium whitespace-nowrap hover:bg-white/5"
-              >
-                <span className="relative z-10">{item.label}</span>
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-amber-500 group-hover:w-full transition-all duration-300" />
-              </a>
-            ))}
+            {navItems.map((item, index) => {
+              const isActive = pathname === '/' && item.href.startsWith('#') && activeSection === item.href.substring(1);
+              const isGalleryActive = pathname === '/galeria' && item.href === '/galeria';
+              
+              return (
+                <button
+                  key={item.label}
+                  onClick={() => handleNavClick(item.href)}
+                  className={`relative group px-3 py-2 rounded-lg transition-all duration-300 text-sm font-medium whitespace-nowrap hover:bg-white/5 ${
+                    isActive || isGalleryActive 
+                      ? 'text-yellow-400 bg-yellow-500/10' 
+                      : 'text-gray-300 hover:text-white'
+                  }`}
+                >
+                  <span className="relative z-10">{item.label}</span>
+                  <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-300 ${
+                    isActive || isGalleryActive ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`} />
+                </button>
+              );
+            })}
           </nav>
 
           {/* CTA Button mejorado */}
@@ -73,6 +136,7 @@ const Header = () => {
             <Button 
               variant="primary" 
               size="md" 
+              onClick={() => handleNavClick('#proxima-edicion')}
               className="bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-black font-semibold shadow-lg hover:shadow-yellow-500/25 transition-all duration-300 group"
             >
               <Calendar className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
@@ -94,28 +158,40 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden py-4 border-t border-yellow-500/20 bg-black/95 backdrop-blur-xl rounded-b-lg mx-[-1rem] px-4">
             <nav className="flex flex-col space-y-1">
-              {navItems.map((item, index) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="group relative text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300 px-4 py-3 text-sm font-medium"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="flex items-center">
-                    <Sparkles className="w-4 h-4 mr-3 text-yellow-400 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                    <span>{item.label}</span>
-                  </div>
-                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-0 h-6 bg-gradient-to-r from-yellow-400 to-amber-500 group-hover:w-1 transition-all duration-300 rounded-r" />
-                </a>
-              ))}
+              {navItems.map((item, index) => {
+                const isActive = pathname === '/' && item.href.startsWith('#') && activeSection === item.href.substring(1);
+                const isGalleryActive = pathname === '/galeria' && item.href === '/galeria';
+                
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => handleNavClick(item.href)}
+                    className={`group relative rounded-lg transition-all duration-300 px-4 py-3 text-sm font-medium ${
+                      isActive || isGalleryActive 
+                        ? 'text-yellow-400 bg-yellow-500/10' 
+                        : 'text-gray-300 hover:text-white hover:bg-white/5'
+                    }`}
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="flex items-center">
+                      <Sparkles className={`w-4 h-4 mr-3 text-yellow-400 transition-all duration-300 ${
+                        isActive || isGalleryActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                      }`} />
+                      <span>{item.label}</span>
+                    </div>
+                    <div className={`absolute left-0 top-1/2 transform -translate-y-1/2 h-6 bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-300 rounded-r ${
+                      isActive || isGalleryActive ? 'w-1' : 'w-0 group-hover:w-1'
+                    }`} />
+                  </button>
+                );
+              })}
               
               <div className="pt-4 px-0">
                 <Button 
                   variant="primary" 
                   size="md" 
                   className="w-full bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-black font-semibold justify-center group"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => handleNavClick('#proxima-edicion')}
                 >
                   <Calendar className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
                   Próximo evento
