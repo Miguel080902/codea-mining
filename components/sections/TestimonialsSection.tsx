@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
       role: "Asociado Estratégico IMSS",
       company: "Consultores",
       quote: "El nivel técnico de las charlas fue de alto valor. Gran trabajo del equipo CODEa.",
-      image: "/images/testimonial/testimonial-luis.png",
+      image: "/images/testimonial/testimonial-luis.webp",
       rating: 5,
       category: "Asistente"
     },
@@ -61,7 +61,7 @@ const TestimonialsSection = () => {
       role: "Machine learning Engineer",
       company: "Data Scientist",
       quote: "Este evento representa el futuro de la minería peruana: conectado, innovador y colaborativo.",
-      image: "/images/testimonial/testimonial-yair.png",
+      image: "/images/testimonial/testimonial-yair.webp",
       rating: 5,
       category: "Ponente"
     }

@@ -438,7 +438,7 @@ Sistema Automatizado CODEa Mining Fest`
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/70" />
           <Image
-            src="/images/contact/conference-audience.png"
+            src="/images/contact/conference-audience.webp"
             alt="Conference audience"
             fill
             className="object-cover opacity-30"

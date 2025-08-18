@@ -44,7 +44,7 @@ const HighlightsGallery = () => {
       id: 3,
       title: "Networking Session",
       description: "Intercambio de ideas entre profesionales",
-      image: "/images/contact/conference-audience.png",
+      image: "/images/contact/conference-audience.webp",
       type: "networking"
     },
     {

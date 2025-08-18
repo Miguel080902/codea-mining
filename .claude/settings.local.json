@@ -1,7 +1,20 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(where:*)",
+      "Bash(npm install:*)",
+      "Bash(sharp resize 1920 1080 --quality 85 --format jpeg \"./highlights/panel-discussion.jpg\" --output \"./highlights/panel-discussion-optimized.jpg\")",
+      "Bash(sharp -i \"./highlights/panel-discussion.jpg\" -o \"./highlights/panel-discussion-optimized.jpg\" resize 1920 1080 --quality 85)",
+      "Bash(mv \"panel-discussion.jpg\" \"panel-discussion-backup.jpg\")",
+      "Bash(mv:*)",
+      "Bash(sharp -i \"./testimonial/testimonial-yair.png\" -o \"./testimonial/testimonial-yair-optimized.webp\" resize 800 600 --quality 85)",
+      "Bash(sharp:*)",
+      "Bash(winget install:*)",
+      "Bash(choco install:*)",
+      "Bash(echo:*)",
+      "Bash(echo \"testimonial-yair.png -> .webp: 5.6MB -> 59KB (99% reducción)\")",
+      "Bash(echo \"testimonial-luis.png -> .webp: 1.7MB -> 47KB (97% reducción)\")"
     ],
     "deny": [],
     "ask": []
