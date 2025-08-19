@@ -301,19 +301,41 @@ Sistema Automatizado CODEa Mining Fest`
       <div className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-white py-20 lg:py-32 w-full max-w-full overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(30)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute opacity-10"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`
-              }}
-            >
-              <Sparkles className="w-4 h-4 text-blue-500 animate-float" />
-            </div>
-          ))}
+          {[...Array(30)].map((_, i) => {
+            // Valores fijos para evitar hydration mismatch
+            const positions = [
+              { left: 10, top: 15, delay: 0.5 }, { left: 90, top: 25, delay: 3.2 },
+              { left: 35, top: 85, delay: 1.8 }, { left: 75, top: 45, delay: 4.1 },
+              { left: 15, top: 65, delay: 2.3 }, { left: 85, top: 75, delay: 0.9 },
+              { left: 55, top: 35, delay: 3.7 }, { left: 25, top: 55, delay: 1.4 },
+              { left: 65, top: 15, delay: 4.6 }, { left: 45, top: 95, delay: 2.1 },
+              { left: 95, top: 55, delay: 0.7 }, { left: 5, top: 35, delay: 3.9 },
+              { left: 70, top: 85, delay: 1.6 }, { left: 30, top: 25, delay: 4.3 },
+              { left: 80, top: 65, delay: 2.8 }, { left: 20, top: 45, delay: 0.3 },
+              { left: 60, top: 75, delay: 3.5 }, { left: 40, top: 5, delay: 1.9 },
+              { left: 85, top: 35, delay: 4.8 }, { left: 15, top: 85, delay: 2.6 },
+              { left: 75, top: 25, delay: 0.8 }, { left: 35, top: 65, delay: 3.4 },
+              { left: 95, top: 15, delay: 1.7 }, { left: 5, top: 75, delay: 4.2 },
+              { left: 65, top: 55, delay: 2.9 }, { left: 25, top: 35, delay: 0.4 },
+              { left: 85, top: 95, delay: 3.8 }, { left: 45, top: 25, delay: 1.3 },
+              { left: 55, top: 85, delay: 4.7 }, { left: 15, top: 45, delay: 2.2 }
+            ];
+            const pos = positions[i];
+            
+            return (
+              <div
+                key={i}
+                className="absolute opacity-10"
+                style={{
+                  left: `${pos.left}%`,
+                  top: `${pos.top}%`,
+                  animationDelay: `${pos.delay}s`
+                }}
+              >
+                <Sparkles className="w-4 h-4 text-blue-500 animate-float" />
+              </div>
+            );
+          })}
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
@@ -397,10 +419,10 @@ Sistema Automatizado CODEa Mining Fest`
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-2xl scale-110 group-hover:scale-125 transition-transform duration-700" />
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/20">
                   <Image
-                    src="/images/contact/mining-engineer-woman.png"
+                    src="/images/contact/mining-engineer-woman-optimized.webp"
                     alt="Ingeniera de minas profesional"
-                    width={600}
-                    height={700}
+                    width={896}
+                    height={1280}
                     className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   
@@ -447,18 +469,51 @@ Sistema Automatizado CODEa Mining Fest`
 
         {/* Animated particles */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(50)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-yellow-400/30 rounded-full animate-float"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${3 + Math.random() * 4}s`
-              }}
-            />
-          ))}
+          {[...Array(50)].map((_, i) => {
+            // Valores fijos para evitar hydration mismatch
+            const positions = [
+              { left: 8, top: 12, delay: 0.3, duration: 4.2 }, { left: 92, top: 28, delay: 3.7, duration: 5.1 },
+              { left: 34, top: 88, delay: 1.9, duration: 3.8 }, { left: 78, top: 42, delay: 4.3, duration: 6.2 },
+              { left: 12, top: 68, delay: 2.1, duration: 4.9 }, { left: 88, top: 82, delay: 0.7, duration: 3.5 },
+              { left: 56, top: 18, delay: 3.4, duration: 5.6 }, { left: 22, top: 58, delay: 1.6, duration: 4.1 },
+              { left: 68, top: 92, delay: 4.8, duration: 3.9 }, { left: 42, top: 32, delay: 2.3, duration: 5.8 },
+              { left: 96, top: 48, delay: 0.9, duration: 4.6 }, { left: 4, top: 78, delay: 3.1, duration: 3.7 },
+              { left: 72, top: 8, delay: 1.4, duration: 5.3 }, { left: 28, top: 72, delay: 4.6, duration: 4.4 },
+              { left: 84, top: 38, delay: 2.8, duration: 6.1 }, { left: 16, top: 98, delay: 0.5, duration: 3.6 },
+              { left: 62, top: 52, delay: 3.9, duration: 5.7 }, { left: 38, top: 22, delay: 1.7, duration: 4.3 },
+              { left: 94, top: 88, delay: 4.1, duration: 3.4 }, { left: 6, top: 44, delay: 2.6, duration: 5.9 },
+              { left: 74, top: 64, delay: 0.8, duration: 4.7 }, { left: 26, top: 14, delay: 3.5, duration: 3.8 },
+              { left: 86, top: 76, delay: 1.3, duration: 5.4 }, { left: 14, top: 36, delay: 4.9, duration: 4.1 },
+              { left: 58, top: 96, delay: 2.4, duration: 6.3 }, { left: 46, top: 6, delay: 0.6, duration: 3.9 },
+              { left: 82, top: 54, delay: 3.8, duration: 5.2 }, { left: 18, top: 84, delay: 1.8, duration: 4.5 },
+              { left: 66, top: 26, delay: 4.4, duration: 3.7 }, { left: 32, top: 46, delay: 2.7, duration: 6.0 },
+              { left: 98, top: 62, delay: 0.4, duration: 4.8 }, { left: 2, top: 16, delay: 3.6, duration: 3.3 },
+              { left: 76, top: 94, delay: 1.5, duration: 5.5 }, { left: 24, top: 34, delay: 4.7, duration: 4.2 },
+              { left: 90, top: 74, delay: 2.9, duration: 3.6 }, { left: 10, top: 56, delay: 0.7, duration: 6.4 },
+              { left: 54, top: 2, delay: 3.2, duration: 4.9 }, { left: 48, top: 86, delay: 1.1, duration: 5.1 },
+              { left: 80, top: 24, delay: 4.5, duration: 3.8 }, { left: 20, top: 66, delay: 2.2, duration: 5.7 },
+              { left: 64, top: 38, delay: 0.9, duration: 4.4 }, { left: 36, top: 92, delay: 3.3, duration: 6.2 },
+              { left: 92, top: 12, delay: 1.6, duration: 3.5 }, { left: 8, top: 48, delay: 4.2, duration: 5.8 },
+              { left: 52, top: 78, delay: 2.5, duration: 4.6 }, { left: 44, top: 58, delay: 0.3, duration: 3.9 },
+              { left: 88, top: 4, delay: 3.7, duration: 5.3 }, { left: 12, top: 88, delay: 1.9, duration: 4.1 },
+              { left: 70, top: 44, delay: 4.8, duration: 6.1 }, { left: 30, top: 68, delay: 2.8, duration: 3.7 },
+              { left: 60, top: 82, delay: 0.5, duration: 5.6 }, { left: 40, top: 18, delay: 3.4, duration: 4.3 }
+            ];
+            const pos = positions[i];
+            
+            return (
+              <div
+                key={i}
+                className="absolute w-1 h-1 bg-yellow-400/30 rounded-full animate-float"
+                style={{
+                  left: `${pos.left}%`,
+                  top: `${pos.top}%`,
+                  animationDelay: `${pos.delay}s`,
+                  animationDuration: `${pos.duration}s`
+                }}
+              />
+            );
+          })}
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-24">

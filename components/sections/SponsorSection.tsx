@@ -54,6 +54,12 @@ const SponsorsSection = () => {
       name: "CorePlan",
       logo: "/images/sponsors/coreplan-logo.png",
       description: "Planificación y optimización minera"
+    },
+    {
+      id: 6,
+      name: "IMSS",
+      logo: "/images/sponsors/imss.png",
+      description: "Consultoría en Ingeniería de Minas"
     }
   ];
 
@@ -71,19 +77,34 @@ const SponsorsSection = () => {
 
       {/* Floating elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute opacity-10"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`
-            }}
-          >
-            <Sparkles className="w-4 h-4 text-yellow-500 animate-float" />
-          </div>
-        ))}
+        {[...Array(15)].map((_, i) => {
+          // Valores fijos para evitar hydration mismatch
+          const positions = [
+            { left: 12, top: 18, delay: 0.8 }, { left: 88, top: 22, delay: 3.2 },
+            { left: 35, top: 78, delay: 1.9 }, { left: 72, top: 62, delay: 4.1 },
+            { left: 18, top: 42, delay: 2.6 }, { left: 68, top: 88, delay: 0.4 },
+            { left: 92, top: 38, delay: 3.7 }, { left: 42, top: 68, delay: 1.3 },
+            { left: 58, top: 28, delay: 4.5 }, { left: 22, top: 82, delay: 2.2 },
+            { left: 78, top: 32, delay: 0.9 }, { left: 48, top: 92, delay: 3.8 },
+            { left: 8, top: 58, delay: 1.6 }, { left: 82, top: 12, delay: 4.3 },
+            { left: 38, top: 48, delay: 2.9 }
+          ];
+          const pos = positions[i];
+          
+          return (
+            <div
+              key={i}
+              className="absolute opacity-10"
+              style={{
+                left: `${pos.left}%`,
+                top: `${pos.top}%`,
+                animationDelay: `${pos.delay}s`
+              }}
+            >
+              <Sparkles className="w-4 h-4 text-yellow-500 animate-float" />
+            </div>
+          );
+        })}
       </div>
 
       <div className="relative z-10 container mx-auto px-4 lg:px-6">
@@ -163,8 +184,8 @@ const SponsorsSection = () => {
           </div>
 
           {/* Second Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 max-w-3xl mx-auto">
-            {diamondSponsors.slice(3, 5).map((sponsor, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+            {diamondSponsors.slice(3, 6).map((sponsor, index) => (
               <div
                 key={sponsor.id}
                 className={`group relative transform transition-all duration-700 hover:scale-105 ${
@@ -218,7 +239,7 @@ const SponsorsSection = () => {
         }`}>
           <div className="text-center p-6 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl border border-yellow-200">
             <Award className="w-8 h-8 text-yellow-600 mx-auto mb-3" />
-            <div className="text-3xl font-bold text-yellow-600 mb-2">5</div>
+            <div className="text-3xl font-bold text-yellow-600 mb-2">6</div>
             <div className="text-gray-700 font-medium">Sponsors Diamante</div>
           </div>
           

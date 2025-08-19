@@ -14,7 +14,11 @@
       "Bash(choco install:*)",
       "Bash(echo:*)",
       "Bash(echo \"testimonial-yair.png -> .webp: 5.6MB -> 59KB (99% reducción)\")",
-      "Bash(echo \"testimonial-luis.png -> .webp: 1.7MB -> 47KB (97% reducción)\")"
+      "Bash(echo \"testimonial-luis.png -> .webp: 1.7MB -> 47KB (97% reducción)\")",
+      "Bash(find:*)",
+      "Bash(cp:*)",
+      "Bash(rm:*)",
+      "Bash(grep:*)"
     ],
     "deny": [],
     "ask": []

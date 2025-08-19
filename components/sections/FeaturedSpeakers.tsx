@@ -36,93 +36,85 @@ const FeaturedSpeakers = () => {
 
   const speakers = [
     {
-      id: 1,
+      id: 0,
       name: "Christa Quiroz Cotrina",
-      title: "Ingeniera en Minas",
-      subtitle: "Líder de planificación, supervisión y desarrollo de planes mineros",
-      company: "Minera ABC",
-      image: "/images/speakers/speaker-christa.png",
-      rating: 4.9,
-      talks: 3,
+      title: "Ingeniera en Minas | Lider de planificación, supervisión y desarrollo de planes mineros",
+      subtitle: "Integración de nuevas tecnologías de gestión de relaves y desmonte en la Planificación en minería a tajo abierto",
+      image: "/images/speakers/speaker-christa-optimized.webp",
+      country: "Perú"
+    },
+    {
+      id: 1,
+      name: "Hyder Mamani",
+      title: "Sub Grte. Técnico en procesos metalúrgicos MEPSA Aceros Chilca SAC",
+      subtitle: "Redefinición de la IA en la conexión Mina-Planta",
+      image: "/images/speakers/speaker-hyder-optimized.webp",
       country: "Perú"
     },
     {
       id: 2,
-      name: "Hyder Mamani",
-      title: "Sub Grte. Técnico en procesos metalúrgicos",
-      subtitle: "MEPSA Aceros Chilea SAC",
-      company: "MEPSA",
-      image: "/images/speakers/speaker-hyder.png",
-      rating: 4.8,
-      talks: 2,
-      country: "Chile"
+      name: "Christian Osorio",
+      title: "Gerente General IMSS by Latam",
+      subtitle: "Análisis de riesgo aplicado a la planificación minera",
+      image: "/images/speakers/speaker-christian-optimized.webp",
+      country: "Perú"
     },
     {
       id: 3,
-      name: "Christian Osorio",
-      title: "Gerente General IMSS",
-      subtitle: "by Latam",
-      company: "IMSS Latam",
-      image: "/images/speakers/speaker-christian.png",
-      rating: 4.9,
-      talks: 4,
-      country: "Colombia"
+      name: "Enrique Paredes",
+      title: "Operations Mining Executive",
+      subtitle: "Gestión integrada de operaciones mineras",
+      image: "/images/speakers/speaker-enrique-optimized.webp",
+      country: "Perú"
     },
     {
       id: 4,
-      name: "Leonardo Almeyda Tejada",
-      title: "Ingeniero de Innovación & Transformación Digital",
-      subtitle: "Nexa Resources",
-      company: "Nexa Resources",
-      image: "/images/speakers/speaker-leonardo.png",
-      rating: 4.7,
-      talks: 2,
-      country: "Brasil"
+      name: "Luis Eduardo Rojas",
+      title: "Gerente de Tecnologías de Información en Hudbay Peru S.A.C.",
+      subtitle: "OT para soportar la operación minera",
+      image: "/images/speakers/speaker-luis-e-optimized.webp",
+      country: "Perú"
     },
     {
       id: 5,
-      name: "Leonardo Almeyda Tejada",
-      title: "Ingeniero de Innovación & Transformación Digital",
-      subtitle: "Nexa Resources",
-      company: "Nexa Resources",
-      image: "/images/speakers/speaker-leonardo.png",
-      rating: 4.7,
-      talks: 2,
-      country: "Brasil"
+      name: "José Chimaico",
+      title: "Gerente de operaciones FLANDERS",
+      subtitle: "Futuro autónomo: Tecnología de Perforación agnóstica",
+      image: "/images/speakers/speaker-jose-optimized.webp",
+      country: "Perú"
     },
     {
       id: 6,
-      name: "Leonardo Almeyda Tejada",
-      title: "Ingeniero de Innovación & Transformación Digital",
-      subtitle: "Nexa Resources",
-      company: "Nexa Resources",
-      image: "/images/speakers/speaker-leonardo.png",
-      rating: 4.7,
-      talks: 2,
-      country: "Brasil"
+      name: "Giovanna Tito",
+      title: "CEO SILTZ | Directora Independiente MS4M",
+      subtitle: "Minería 5.0: Operaciones Integradas, Seguras y Colaborativas",
+      image: "/images/speakers/speaker-giovanna-optimized.webp",
+      country: "Perú"
     },
     {
       id: 7,
-      name: "Leonardo Almeyda Tejada",
-      title: "Ingeniero de Innovación & Transformación Digital",
-      subtitle: "Nexa Resources",
-      company: "Nexa Resources",
-      image: "/images/speakers/speaker-leonardo.png",
-      rating: 4.7,
-      talks: 2,
-      country: "Brasil"
+      name: "Yair Camborda Morocho",
+      title: "Machine learning Engineer | Data Scientist",
+      subtitle: "IA en acción: Casos de éxito que están revolucionando  la minería",
+      image: "/images/speakers/speaker-yair-optimized.webp",
+      country: "Perú"
     },
     {
       id: 8,
-      name: "Leonardo Almeyda Tejada",
-      title: "Ingeniero de Innovación & Transformación Digital",
-      subtitle: "Nexa Resources",
-      company: "Nexa Resources",
-      image: "/images/speakers/speaker-leonardo.png",
-      rating: 4.7,
-      talks: 2,
-      country: "Brasil"
-    }
+      name: "Hilario Gorvenia",
+      title: "Gerente de procesos y planta en Metso",
+      subtitle: "El valor agregado de la Conminución y la Variabilidad como Enemigo Silencioso en la Eficiencia del Proceso.",
+      image: "/images/speakers/speaker-hilario-optimized.webp",
+      country: "Perú"
+    },
+    {
+      id: 9,
+      name: "Luis Martinez",
+      title: "Asociado Estratégico IMSS-Consultores",
+      subtitle: "Análisis de riesgo aplicado a la planificación minera",
+      image: "/images/speakers/speaker-luis-m-optimized.webp",
+      country: "Perú"
+    },
   ];
 
   return (
@@ -140,19 +132,34 @@ const FeaturedSpeakers = () => {
 
       {/* Floating icons */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute opacity-10"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`
-            }}
-          >
-            <Users className="w-4 h-4 text-yellow-400 animate-float" />
-          </div>
-        ))}
+        {[...Array(15)].map((_, i) => {
+          // Valores fijos para evitar hydration mismatch
+          const positions = [
+            { left: 15, top: 25, delay: 1.2 }, { left: 85, top: 15, delay: 3.8 },
+            { left: 45, top: 75, delay: 2.1 }, { left: 75, top: 55, delay: 4.2 },
+            { left: 25, top: 35, delay: 0.8 }, { left: 65, top: 85, delay: 2.9 },
+            { left: 95, top: 45, delay: 1.7 }, { left: 35, top: 65, delay: 3.4 },
+            { left: 55, top: 25, delay: 0.5 }, { left: 20, top: 85, delay: 4.6 },
+            { left: 80, top: 35, delay: 2.3 }, { left: 50, top: 95, delay: 1.9 },
+            { left: 10, top: 55, delay: 3.1 }, { left: 70, top: 15, delay: 0.9 },
+            { left: 40, top: 45, delay: 4.8 }
+          ];
+          const pos = positions[i];
+          
+          return (
+            <div
+              key={i}
+              className="absolute opacity-10"
+              style={{
+                left: `${pos.left}%`,
+                top: `${pos.top}%`,
+                animationDelay: `${pos.delay}s`
+              }}
+            >
+              <Users className="w-4 h-4 text-yellow-400 animate-float" />
+            </div>
+          );
+        })}
       </div>
 
       <div className="relative z-10 container mx-auto px-4 lg:px-6">        
@@ -178,7 +185,7 @@ const FeaturedSpeakers = () => {
         </div>
 
         {/* Speakers Grid */}
-        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 transform transition-all duration-1000 delay-300 ${
+        <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 transform transition-all duration-1000 delay-300 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
           {speakers.map((speaker, index) => (
@@ -192,13 +199,13 @@ const FeaturedSpeakers = () => {
               onMouseLeave={() => setHoveredSpeaker(null)}
             >
               {/* Card Container - Altura fija */}
-              <div className="relative bg-slate-800/40 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-yellow-500/30 transition-all duration-500 h-full flex flex-col">
+              <div className="relative bg-slate-800/40 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-yellow-500/30 transition-all duration-500 h-full flex flex-col min-h-[380px]">
                 
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
                 
                 {/* Speaker Image - Altura fija */}
-                <div className="relative h-64 overflow-hidden flex-shrink-0">
+                <div className="relative h-48 overflow-hidden flex-shrink-0">
                   <Image
                     src={speaker.image}
                     alt={speaker.name}
@@ -213,12 +220,6 @@ const FeaturedSpeakers = () => {
                   <div className="absolute top-4 right-4 flex items-center space-x-1 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full">
                     <MapPin className="w-3 h-3 text-yellow-400" />
                     <span className="text-white text-xs font-medium">{speaker.country}</span>
-                  </div>
-                  
-                  {/* Rating Badge */}
-                  <div className="absolute top-4 left-4 flex items-center space-x-1 bg-yellow-500/90 px-3 py-1 rounded-full">
-                    <Star className="w-3 h-3 text-black" />
-                    <span className="text-black text-xs font-bold">{speaker.rating}</span>
                   </div>
 
                   {/* Hover Social Icons */}
@@ -235,29 +236,19 @@ const FeaturedSpeakers = () => {
                 </div>
 
                 {/* Speaker Info - Flex-grow para ocupar espacio restante */}
-                <div className="relative p-6 flex-grow flex flex-col justify-between">
-                  <div className="flex-grow">
-                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors duration-300 line-clamp-2 min-h-[1.5rem]">
+                <div className="relative p-3 flex-grow flex flex-col">
+                  <div>
+                    <h3 className="text-base font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors duration-300 leading-tight">
                       {speaker.name}
                     </h3>
                     
-                    <p className="text-yellow-400 font-semibold text-sm mb-2 line-clamp-2 min-h-[2.5rem]">
+                    <p className="text-yellow-400 font-medium text-xs mb-1 leading-tight">
                       {speaker.title}
                     </p>
                     
-                    <p className="text-gray-400 text-sm leading-tight mb-4 line-clamp-2 min-h-[2.5rem]">
+                    <p className="text-gray-400 text-xs leading-tight font-light">
                       {speaker.subtitle}
                     </p>
-                  </div>
-                  
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-blue-400 font-medium text-sm truncate mr-2">
-                      {speaker.company}
-                    </span>
-                    <div className="flex items-center space-x-1 text-gray-400 text-sm flex-shrink-0">
-                      <Users className="w-4 h-4" />
-                      <span>{speaker.talks} charlas</span>
-                    </div>
                   </div>
 
                   {/* Hover line effect */}
@@ -271,28 +262,6 @@ const FeaturedSpeakers = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Bottom Stats */}
-        <div className={`mt-16 grid grid-cols-1 sm:grid-cols-4 gap-6 transform transition-all duration-1000 delay-1000 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-        }`}>
-          <div className="text-center p-6 bg-slate-800/30 backdrop-blur-sm rounded-xl border border-white/10">
-            <div className="text-3xl font-bold text-yellow-400 mb-2">25+</div>
-            <div className="text-gray-300">Speakers Internacionales</div>
-          </div>
-          <div className="text-center p-6 bg-slate-800/30 backdrop-blur-sm rounded-xl border border-white/10">
-            <div className="text-3xl font-bold text-blue-400 mb-2">8</div>
-            <div className="text-gray-300">Países Representados</div>
-          </div>
-          <div className="text-center p-6 bg-slate-800/30 backdrop-blur-sm rounded-xl border border-white/10">
-            <div className="text-3xl font-bold text-green-400 mb-2">4.8</div>
-            <div className="text-gray-300">Rating Promedio</div>
-          </div>
-          <div className="text-center p-6 bg-slate-800/30 backdrop-blur-sm rounded-xl border border-white/10">
-            <div className="text-3xl font-bold text-purple-400 mb-2">25</div>
-            <div className="text-gray-300">Años de Experiencia</div>
-          </div>
         </div>
       </div>
     </section>

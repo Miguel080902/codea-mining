@@ -49,11 +49,11 @@ const InterviewsSection = () => {
   }, []);
 
   const interviews = [
-    {
+      {
       id: 0,
       name: "CODEa UNI Oficial",
-      role: "YouTube Short - Contenido 1",
-      quote: "Primer video exclusivo del CODEa Mining Fest 2025",
+      role: "Tecnología en Minería - Conferencia Inaugural",
+      quote: "Innovación tecnológica aplicada a la industria minera peruana",
       image: `https://img.youtube.com/vi/ytN3FqzWAGg/hqdefault.jpg`,
       category: "YouTube",
       duration: "Short",
@@ -65,8 +65,8 @@ const InterviewsSection = () => {
     {
       id: 1,
       name: "CODEa UNI Oficial",
-      role: "YouTube Short - Contenido 2",
-      quote: "Segundo video exclusivo del CODEa Mining Fest 2025",
+      role: "Machine Learning en Minería - Presentación",
+      quote: "Aplicaciones de inteligencia artificial en procesos mineros",
       image: `https://img.youtube.com/vi/eDpUUCcKJH4/hqdefault.jpg`,
       category: "YouTube",
       duration: "Short",
@@ -78,8 +78,8 @@ const InterviewsSection = () => {
     {
       id: 2,
       name: "CODEa UNI Oficial",
-      role: "YouTube Short - Contenido 3",
-      quote: "Tercer video exclusivo del CODEa Mining Fest 2025",
+      role: "Bootcamp Tecnológico - Testimonios",
+      quote: "Experiencias de participantes en tecnología aplicada a minería",
       image: `https://img.youtube.com/vi/veIyjbGww3Y/hqdefault.jpg`,
       category: "YouTube",
       duration: "Short",
@@ -91,8 +91,8 @@ const InterviewsSection = () => {
     {
       id: 3,
       name: "CODEa UNI Oficial",
-      role: "YouTube Short - Contenido 4",
-      quote: "Cuarto video exclusivo del CODEa Mining Fest 2025",
+      role: "Automatización Minera - Caso de Estudio",
+      quote: "Soluciones de automatización para operaciones mineras modernas",
       image: `https://img.youtube.com/vi/iEUuAjztBGk/hqdefault.jpg`,
       category: "YouTube",
       duration: "Short",
@@ -104,67 +104,41 @@ const InterviewsSection = () => {
     {
       id: 4,
       name: "CODEa UNI Oficial",
-      role: "YouTube Short - Contenido 5",
-      quote: "Quinto video exclusivo del CODEa Mining Fest 2025",
-      image: `https://img.youtube.com/vi/eDpUUCcKJH4/hqdefault.jpg`,
+      role: "Análisis de Datos Mineros - Workshop",
+      quote: "Gestión y análisis de big data en la industria extractiva",
+      image: `https://img.youtube.com/vi/xu5SHdvepA8/hqdefault.jpg`,
       category: "YouTube",
       duration: "Short",
       likes: "Ver en YT",
       comments: "Real",
       isYouTube: true,
-      videoId: "eDpUUCcKJH4"
+      videoId: "xu5SHdvepA8"
     },
     {
       id: 5,
       name: "CODEa UNI Oficial",
-      role: "YouTube Short - Contenido 6",
-      quote: "Sexto video exclusivo del CODEa Mining Fest 2025",
-      image: `https://img.youtube.com/vi/ytN3FqzWAGg/hqdefault.jpg`,
+      role: "Sensores IoT en Minería - Demostración",
+      quote: "Internet de las cosas aplicado al monitoreo de operaciones mineras",
+      image: `https://img.youtube.com/vi/pRcjGt8loDg/hqdefault.jpg`,
       category: "YouTube",
       duration: "Short",
       likes: "Ver en YT",
       comments: "Real",
       isYouTube: true,
-      videoId: "ytN3FqzWAGg"
+      videoId: "pRcjGt8loDg"
     },
     {
       id: 6,
       name: "CODEa UNI Oficial",
-      role: "YouTube Short - Contenido 7",
-      quote: "Séptimo video exclusivo del CODEa Mining Fest 2025",
-      image: `https://img.youtube.com/vi/ytN3FqzWAGg/hqdefault.jpg`,
+      role: "Seguridad Digital Minera - Panel",
+      quote: "Ciberseguridad y protección de datos en la minería 4.0",
+      image: `https://img.youtube.com/vi/Xt8Y1Wi9zTQ/hqdefault.jpg`,
       category: "YouTube",
       duration: "Short",
       likes: "Ver en YT",
       comments: "Real",
       isYouTube: true,
-      videoId: "ytN3FqzWAGg"
-    },
-    {
-      id: 7,
-      name: "CODEa UNI Oficial",
-      role: "YouTube Short - Contenido 8",
-      quote: "Octavo video exclusivo del CODEa Mining Fest 2025",
-      image: `https://img.youtube.com/vi/ytN3FqzWAGg/hqdefault.jpg`,
-      category: "YouTube",
-      duration: "Short",
-      likes: "Ver en YT",
-      comments: "Real",
-      isYouTube: true,
-      videoId: "ytN3FqzWAGg"
-    },
-    {
-      id: 8,
-      name: "CODEa UNI Oficial",
-      role: "YouTube Short - Contenido 9",
-      quote: "Noveno video exclusivo del CODEa Mining Fest 2025",
-      image: `https://img.youtube.com/vi/ytN3FqzWAGg/hqdefault.jpg`,
-      category: "YouTube",
-      duration: "Short",
-      likes: "Ver en YT",
-      comments: "Real",
-      isYouTube: true,
-      videoId: "ytN3FqzWAGg"
+      videoId: "Xt8Y1Wi9zTQ"
     }
   ];
 
@@ -432,19 +406,34 @@ const InterviewsSection = () => {
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
         
         {/* Floating microphone icons */}
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute opacity-5"
-            style={{
-              left: `${10 + Math.random() * 80}%`,
-              top: `${10 + Math.random() * 80}%`,
-              animationDelay: `${Math.random() * 3}s`
-            }}
-          >
-            <Mic className="w-6 h-6 text-yellow-400 animate-float" />
-          </div>
-        ))}
+        {[...Array(8)].map((_, i) => {
+          // Valores fijos para evitar hydration mismatch
+          const positions = [
+            { left: 20, top: 15, delay: 0.5 },
+            { left: 75, top: 25, delay: 1.8 },
+            { left: 45, top: 65, delay: 2.2 },
+            { left: 85, top: 70, delay: 0.9 },
+            { left: 15, top: 85, delay: 1.5 },
+            { left: 60, top: 20, delay: 2.7 },
+            { left: 30, top: 45, delay: 1.1 },
+            { left: 70, top: 80, delay: 2.4 }
+          ];
+          const pos = positions[i];
+          
+          return (
+            <div
+              key={i}
+              className="absolute opacity-5"
+              style={{
+                left: `${pos.left}%`,
+                top: `${pos.top}%`,
+                animationDelay: `${pos.delay}s`
+              }}
+            >
+              <Mic className="w-6 h-6 text-yellow-400 animate-float" />
+            </div>
+          );
+        })}
       </div>
 
       <div className="relative z-10 container mx-auto px-4 lg:px-6">

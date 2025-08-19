@@ -79,8 +79,8 @@ const StatsSection = () => {
   }, []);
 
   const stats = [
-    { number: 25, label: "Speaker de nivel internacional" },
-    { number: 15, label: "Charlas técnicas" },
+    { number: 20, label: "Conferencistas de nivel internacional" },
+    { number: 10, label: "Charlas técnicas" },
     { number: 300, label: "Asistentes" }
   ];
 
@@ -99,18 +99,37 @@ const StatsSection = () => {
 
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-yellow-400/30 rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
-            }}
-          />
-        ))}
+        {[...Array(12)].map((_, i) => {
+          // Valores fijos para evitar hydration mismatch
+          const positions = [
+            { left: 15, top: 20, delay: 0.5, duration: 4 },
+            { left: 85, top: 10, delay: 1.2, duration: 3.5 },
+            { left: 25, top: 80, delay: 2.1, duration: 4.2 },
+            { left: 70, top: 65, delay: 0.8, duration: 3.8 },
+            { left: 45, top: 30, delay: 1.8, duration: 3.2 },
+            { left: 90, top: 85, delay: 0.3, duration: 4.5 },
+            { left: 10, top: 55, delay: 2.5, duration: 3.7 },
+            { left: 60, top: 15, delay: 1.5, duration: 4.1 },
+            { left: 35, top: 75, delay: 0.9, duration: 3.4 },
+            { left: 80, top: 40, delay: 2.2, duration: 3.9 },
+            { left: 20, top: 90, delay: 1.1, duration: 4.3 },
+            { left: 65, top: 25, delay: 1.9, duration: 3.6 }
+          ];
+          const pos = positions[i];
+          
+          return (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-yellow-400/30 rounded-full animate-float"
+              style={{
+                left: `${pos.left}%`,
+                top: `${pos.top}%`,
+                animationDelay: `${pos.delay}s`,
+                animationDuration: `${pos.duration}s`
+              }}
+            />
+          );
+        })}
       </div>
 
       <div className="relative z-10 container mx-auto px-4 lg:px-6">

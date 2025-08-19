@@ -17,7 +17,8 @@ import {
 } from 'lucide-react';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  // Año fijo para evitar hydration mismatch
+  const currentYear = 2025;
 
   const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook", color: "hover:text-blue-400" },
@@ -64,6 +65,7 @@ const Footer = () => {
                   width={180}
                   height={90}
                   className="object-contain mb-4"
+                  style={{ width: 'auto', height: 'auto' }}
                 />
                 <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-light">
                   El evento líder en innovación minera de Latinoamérica. Conectando profesionales, 
@@ -188,9 +190,6 @@ const Footer = () => {
               <div className="text-center lg:text-left">
                 <p className="text-gray-400 text-sm">
                   © {currentYear} CODEa Mining Fest. Todos los derechos reservados.
-                </p>
-                <p className="text-gray-500 text-xs mt-1">
-                  Desarrollado con ❤️ para la comunidad minera latinoamericana
                 </p>
               </div>
 

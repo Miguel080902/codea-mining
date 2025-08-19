@@ -177,7 +177,7 @@ const EventAgenda = () => {
                     <div className="text-gray-300">De contenido</div>
                   </div>
                   <div className="text-center p-6 bg-slate-800/30 backdrop-blur-sm rounded-xl border border-white/10">
-                    <div className="text-3xl font-bold text-blue-400 mb-2">+20</div>
+                    <div className="text-3xl font-bold text-blue-400 mb-2">+15</div>
                     <div className="text-gray-300">Presentaciones</div>
                   </div>
                   <div className="text-center p-6 bg-slate-800/30 backdrop-blur-sm rounded-xl border border-white/10">

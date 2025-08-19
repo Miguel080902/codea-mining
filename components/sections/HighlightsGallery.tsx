@@ -28,30 +28,30 @@ const HighlightsGallery = () => {
   const highlights = [
     {
       id: 1,
-      title: "Panel de Expertos",
+      title: "CODEa MINING FEST Primera Edición",
       description: "Mesa redonda con líderes de la industria minera",
-      image: "/images/highlights/panel-discussion.jpg",
-      type: "panel"
+      videoUrl: "https://www.youtube.com/watch?v=asPs_96mdMc",
+      type: "video"
     },
     {
       id: 2,
-      title: "Presentación Magistral",
-      description: "Conferencia sobre el futuro de la minería digital",
-      image: "/images/keynotes/keynote-gabriel.png",
+      title: "Data-Driven Mining",
+      description: "Construyendo una cultura basada en datos",
+      image: "/images/highlights/highlight_1-optimized.webp",
       type: "keynote"
     },
     {
       id: 3,
-      title: "Networking Session",
-      description: "Intercambio de ideas entre profesionales",
-      image: "/images/contact/conference-audience.webp",
+      title: "Inicio de las charlas",
+      description: "Iniciando las charlas técnicas en el CODEa Mining Fest",
+      image: "/images/highlights/highlight_2-optimized.webp",
       type: "networking"
     },
     {
       id: 4,
-      title: "Demo Tecnológica",
-      description: "Presentación de soluciones innovadoras",
-      image: "/images/about/about-1.jpg",
+      title: "Mesa redonda",
+      description: "Innovación en Minería, Retos, Casos y Oportunidades",
+      image: "/images/highlights/highlight_3-optimized.webp",
       type: "demo"
     }
   ];
@@ -99,33 +99,42 @@ const HighlightsGallery = () => {
         <div className={`relative transform transition-all duration-1000 delay-300 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
-          {/* Main Image Display */}
+          {/* Main Image/Video Display */}
           <div className="relative h-[500px] lg:h-[600px] rounded-3xl overflow-hidden mb-8 group">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10" />
+            {highlights[currentSlide].type !== 'video' && (
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10" />
+            )}
             
-            <Image
-              src={highlights[currentSlide].image}
-              alt={highlights[currentSlide].title}
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+            {highlights[currentSlide].type === 'video' ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${highlights[currentSlide].videoUrl.split('v=')[1]}`}
+                title={highlights[currentSlide].title}
+                className="w-full h-full rounded-3xl"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <Image
+                src={highlights[currentSlide].image}
+                alt={highlights[currentSlide].title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            )}
 
-            {/* Overlay Content */}
-            <div className="absolute bottom-8 left-8 z-20 text-white">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-yellow-500/90 text-black text-sm font-medium mb-4">
-                <Eye className="w-4 h-4 mr-2" />
-                Momento destacado
+            {/* Overlay Content - Only for images */}
+            {highlights[currentSlide].type !== 'video' && (
+              <div className="absolute bottom-8 left-8 z-20 text-white">
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-yellow-500/90 text-black text-sm font-medium mb-4">
+                  <Eye className="w-4 h-4 mr-2" />
+                  Momento destacado
+                </div>
+                <h3 className="text-3xl lg:text-4xl font-bold mb-2">{highlights[currentSlide].title}</h3>
+                <p className="text-lg text-gray-300 max-w-md">{highlights[currentSlide].description}</p>
               </div>
-              <h3 className="text-3xl lg:text-4xl font-bold mb-2">{highlights[currentSlide].title}</h3>
-              <p className="text-lg text-gray-300 max-w-md">{highlights[currentSlide].description}</p>
-            </div>
+            )}
 
-            {/* Play Button Overlay */}
-            <div className="absolute inset-0 flex items-center justify-center z-15">
-              <button className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 hover:scale-110 group-hover:scale-125">
-                <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
-              </button>
-            </div>
 
             {/* Navigation Arrows */}
             <button
@@ -155,12 +164,23 @@ const HighlightsGallery = () => {
                     : 'hover:scale-105 opacity-70 hover:opacity-100'
                 }`}
               >
-                <Image
-                  src={highlight.image}
-                  alt={highlight.title}
-                  fill
-                  className="object-cover"
-                />
+                {highlight.type === 'video' ? (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${highlight.videoUrl.split('v=')[1]}`}
+                    title={highlight.title}
+                    className="w-full h-full object-cover"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : (
+                  <Image
+                    src={highlight.image}
+                    alt={highlight.title}
+                    fill
+                    className="object-cover"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-2 left-2 text-white">
                   <p className="text-sm font-medium truncate">{highlight.title}</p>

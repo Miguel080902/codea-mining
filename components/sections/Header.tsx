@@ -100,6 +100,7 @@ const Header = () => {
                 src="/images/FAVICON-CODEAMININGFEST.png"
                 alt="CODEa Mining Fest"
                 fill
+                sizes="(max-width: 768px) 48px, 64px"
                 className="object-contain group-hover:scale-105 transition-transform duration-300 lg:hidden"
                 priority
               />
@@ -108,6 +109,7 @@ const Header = () => {
                 src="/images/LOGO-CODEAMININGFEST-WEB.png"
                 alt="CODEa Mining Fest"
                 fill
+                sizes="(max-width: 1024px) 200px, 250px"
                 className="object-contain group-hover:scale-105 transition-transform duration-300 hidden lg:block"
                 priority
                 style={{

@@ -11,9 +11,9 @@ const AboutSection = () => {
 
   // Array de imágenes
   const images = [
-    '/images/about/about-1.jpg',
+    '/images/about/about-1-optimized.webp',
     '/images/about/about-2.jpg',
-    '/images/about/about-3.jpg',
+    '/images/about/about-3-optimized.webp',
     '/images/about/about-4.jpg'
   ];
 

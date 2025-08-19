@@ -41,7 +41,7 @@ const TestimonialsSection = () => {
       role: "Jefe de Soluciones Tecnológicas",
       company: "Minería en Komatsu - Mitsui",
       quote: "Este evento representa el futuro de la minería peruana: conectado, innovador y colaborativo.",
-      image: "/images/testimonial/testimonial-catherine.jpg",
+      image: "/images/testimonial/testimonial-catherine-optimized.webp",
       rating: 5,
       category: "Ponente"
     },
@@ -87,19 +87,32 @@ const TestimonialsSection = () => {
         <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" />
         
         {/* Floating quote icons */}
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute opacity-5"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`
-            }}
-          >
-            <Quote className="w-6 h-6 text-yellow-400 animate-float" />
-          </div>
-        ))}
+        {[...Array(12)].map((_, i) => {
+          // Valores fijos para evitar hydration mismatch
+          const positions = [
+            { left: 18, top: 25, delay: 1.2 }, { left: 82, top: 15, delay: 3.1 },
+            { left: 45, top: 72, delay: 0.8 }, { left: 75, top: 58, delay: 2.7 },
+            { left: 28, top: 85, delay: 1.9 }, { left: 65, top: 32, delay: 3.5 },
+            { left: 15, top: 45, delay: 0.4 }, { left: 85, top: 75, delay: 2.3 },
+            { left: 52, top: 18, delay: 1.6 }, { left: 35, top: 92, delay: 3.8 },
+            { left: 78, top: 42, delay: 0.9 }, { left: 42, top: 65, delay: 2.1 }
+          ];
+          const pos = positions[i];
+          
+          return (
+            <div
+              key={i}
+              className="absolute opacity-5"
+              style={{
+                left: `${pos.left}%`,
+                top: `${pos.top}%`,
+                animationDelay: `${pos.delay}s`
+              }}
+            >
+              <Quote className="w-6 h-6 text-yellow-400 animate-float" />
+            </div>
+          );
+        })}
       </div>
 
       <div className="relative z-10 container mx-auto px-4 lg:px-6">
