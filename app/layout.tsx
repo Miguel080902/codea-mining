@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CODEa Mining Fest 2026",
+  title: "CODEa Mining Fest 2025",
   description: "El evento que reúne a profesionales, empresas, autoridades y estudiantes para explorar el futuro de la minería en Latinoamérica.",
   keywords: ["minería", "tecnología", "evento", "Perú", "CODEa", "mining", "fest"],
   authors: [{ name: "CODEa UNI" }],
   openGraph: {
-    title: "CODEa Mining Fest 2026",
+    title: "CODEa Mining Fest 2025",
     description: "El evento que reúne a profesionales, empresas, autoridades y estudiantes para explorar el futuro de la minería en Latinoamérica.",
     url: "https://codeaminingfest.com",
     siteName: "CODEa Mining Fest",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         url: "https://codeaminingfest.com/images/LOGO-CODEAMININGFEST-WEB.png",
         width: 1200,
         height: 630,
-        alt: "CODEa Mining Fest 2026",
+        alt: "CODEa Mining Fest 2025",
       },
     ],
     locale: "es_ES",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CODEa Mining Fest 2026",
+    title: "CODEa Mining Fest 2025",
     description: "El evento que reúne a profesionales, empresas, autoridades y estudiantes para explorar el futuro de la minería en Latinoamérica.",
     images: ["https://codeaminingfest.com/images/LOGO-CODEAMININGFEST-WEB.png"],
   },
