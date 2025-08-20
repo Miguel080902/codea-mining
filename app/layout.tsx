@@ -42,7 +42,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/images/FAVICON-CODEAMININGFEST.png",
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+      {
+        url: "/favicon.png",
         sizes: "32x32",
         type: "image/png",
       },
@@ -59,7 +63,7 @@ export const metadata: Metadata = {
         type: "image/png",
       },
     ],
-    shortcut: "/images/FAVICON-CODEAMININGFEST.png",
+    shortcut: "/favicon.ico",
   },
   manifest: "/manifest.json",
 };
@@ -72,6 +76,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/FAVICON-CODEAMININGFEST.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/FAVICON-CODEAMININGFEST.png" />
         <meta name="theme-color" content="#f59e0b" />
       </head>
       <body
