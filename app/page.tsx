@@ -26,8 +26,7 @@ export default function Home() {
       <EventAgenda />
       <FeaturedSpeakers />
       <KeynoteSpeakers />            {/* NUEVO - Conferencistas magistrales */}
-      <SponsorsSection />            {/* NUEVO - Auspiciadores */}
-      <TestimonialsSection />
+      <SponsorsSection />            {/* NUEVO - Auspiciadores <TestimonialsSection />*/}
       <NextEditionCTA />     
       <Footer></Footer>        
     </main>
