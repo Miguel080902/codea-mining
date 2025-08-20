@@ -13,13 +13,43 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CODEa Mining Fest 2025",
+  title: "CODEa Mining Fest 2026",
   description: "El evento que reúne a profesionales, empresas, autoridades y estudiantes para explorar el futuro de la minería en Latinoamérica.",
+  keywords: ["minería", "tecnología", "evento", "Perú", "CODEa", "mining", "fest"],
+  authors: [{ name: "CODEa UNI" }],
+  openGraph: {
+    title: "CODEa Mining Fest 2026",
+    description: "El evento que reúne a profesionales, empresas, autoridades y estudiantes para explorar el futuro de la minería en Latinoamérica.",
+    url: "https://codeaminingfest.com",
+    siteName: "CODEa Mining Fest",
+    images: [
+      {
+        url: "https://codeaminingfest.com/images/LOGO-CODEAMININGFEST-WEB.png",
+        width: 1200,
+        height: 630,
+        alt: "CODEa Mining Fest 2026",
+      },
+    ],
+    locale: "es_ES",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CODEa Mining Fest 2026",
+    description: "El evento que reúne a profesionales, empresas, autoridades y estudiantes para explorar el futuro de la minería en Latinoamérica.",
+    images: ["https://codeaminingfest.com/images/LOGO-CODEAMININGFEST-WEB.png"],
+  },
   icons: {
     icon: [
       {
         url: "/images/FAVICON-CODEAMININGFEST.png",
-        sizes: "any",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/images/FAVICON-CODEAMININGFEST.png",
+        sizes: "16x16",
+        type: "image/png",
       },
     ],
     apple: [
@@ -31,6 +61,7 @@ export const metadata: Metadata = {
     ],
     shortcut: "/images/FAVICON-CODEAMININGFEST.png",
   },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
@@ -39,11 +70,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/app/icon.png" type="image/png" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/app/apple-icon.png" />
         <meta name="theme-color" content="#f59e0b" />
       </head>
       <body

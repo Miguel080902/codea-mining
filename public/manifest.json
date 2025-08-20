@@ -1,0 +1,21 @@
+{
+  "name": "CODEa Mining Fest 2026",
+  "short_name": "CODEa Fest",
+  "description": "El evento que reúne a profesionales, empresas, autoridades y estudiantes para explorar el futuro de la minería en Latinoamérica.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e293b",
+  "theme_color": "#f59e0b",
+  "icons": [
+    {
+      "src": "/images/FAVICON-CODEAMININGFEST.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/FAVICON-CODEAMININGFEST.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
