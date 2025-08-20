@@ -199,7 +199,7 @@ const InterviewsSection = () => {
           width="100%"
           height="100%"
           src={`https://www.youtube.com/embed/${videoId}?autoplay=0&controls=1&rel=0&modestbranding=1&playsinline=1`}
-          title="CODEa Mining Fest 2025 - YouTube Short Oficial"
+          title="CODEa Mining Fest 2025-2026 - YouTube Short Oficial"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
@@ -451,7 +451,7 @@ const InterviewsSection = () => {
             <span className="text-gradient">del evento</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Contenido oficial y testimonios exclusivos desde el CODEa Mining Fest 2025
+            Contenido oficial y testimonios exclusivos desde el CODEa Mining Fest 2025, preparando la edición 2026
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-600 mx-auto mt-6 rounded-full" />
         </div>

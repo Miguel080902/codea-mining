@@ -165,69 +165,36 @@ const NextEditionCTA = () => {
     }
 
     try {
-      // Preparar datos para EmailJS
-      const templateParams = {
-        from_name: `${formData.nombre} ${formData.apellido}`,
-        from_email: formData.email,
-        to_email: process.env.NEXT_PUBLIC_EMAILJS_TO_EMAIL,
-        interes: formData.interes,
-        telefono_completo: `${formData.paisCodigo} ${formData.telefono}`,
-        descripcion: formData.descripcion,
-        fecha: new Date().toLocaleDateString('es-PE', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        }),
-        message: `🎯 NUEVO REGISTRO CODEA MINING FEST 2026
+      console.log('📧 Enviando email via SMTP...');
 
-📋 INFORMACIÓN DEL REGISTRO:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-👤 Nombre completo: ${formData.nombre} ${formData.apellido}
-📧 Email: ${formData.email}
-📱 Teléfono: ${formData.paisCodigo} ${formData.telefono}
-🎯 Tipo de interés: ${formData.interes}
-📄 Descripción: ${formData.descripcion}
-📅 Fecha de registro: ${new Date().toLocaleDateString('es-PE')}
-🕐 Hora: ${new Date().toLocaleTimeString('es-PE')}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✨ Este registro fue enviado desde la landing page oficial.
-🚀 Contactar pronto con información del evento.
-
-Saludos,
-Sistema Automatizado CODEa Mining Fest`
+      // Preparar datos para la nueva API
+      const emailData = {
+        nombre: formData.nombre,
+        apellido: formData.apellido,
+        email: formData.email,
+        telefono: `${formData.paisCodigo} ${formData.telefono}`,
+        pais: formData.paisBandera,
+        empresa: '', // Campo opcional
+        cargo: '', // Campo opcional
+        mensaje: `Tipo de interés: ${formData.interes}\n\nDescripción: ${formData.descripcion}`
       };
 
-      console.log('📧 Enviando notificación al organizador...');
+      // Llamar a nuestra API
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailData)
+      });
 
-      // 1. Enviar notificación al organizador
-      const response = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        templateParams
-      );
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Error enviando email');
+      }
 
-      console.log('✅ Notificación enviada exitosamente:', response);
-
-      // 2. Enviar confirmación al usuario
-      const confirmationParams = {
-        to_name: formData.nombre,
-        to_email: formData.email,
-        user_interes: formData.interes,
-        reply_to: process.env.NEXT_PUBLIC_EMAILJS_TO_EMAIL
-      };
-
-      console.log('📧 Enviando confirmación al usuario...');
-
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_CONFIRM!,
-        confirmationParams
-      );
-
-      console.log('✅ Confirmación enviada exitosamente al usuario');
+      const result = await response.json();
+      console.log('✅ Emails enviados exitosamente:', result);
 
       // Success!
       setIsSubmitted(true);
@@ -268,7 +235,7 @@ Sistema Automatizado CODEa Mining Fest`
           errorMessage += 'Por favor intenta nuevamente en unos minutos.';
         }
       } else {
-        errorMessage += 'Por favor intenta nuevamente o contacta directamente a miguel.ybanez.e@gmail.com';
+        errorMessage += 'Por favor intenta nuevamente o contacta directamente a eventosinteligentes@codeaevents.com';
       }
       
       setSubmitError(errorMessage);
@@ -556,8 +523,8 @@ Sistema Automatizado CODEa Mining Fest`
                         <p className="text-red-400 leading-relaxed">{submitError}</p>
                         <p className="text-red-300 text-sm mt-3">
                           Si el problema persiste, contacta directamente a: 
-                          <a href="mailto:miguel.ybanez.e@gmail.com" className="underline hover:text-red-200 ml-1">
-                            miguel.ybanez.e@gmail.com
+                          <a href="mailto:eventosinteligentes@codeaevents.com" className="underline hover:text-red-200 ml-1">
+                            eventosinteligentes@codeaevents.com
                           </a>
                         </p>
                       </div>
@@ -827,7 +794,7 @@ Sistema Automatizado CODEa Mining Fest`
                   <h4 className="text-white font-semibold mb-3">Próximos pasos:</h4>
                   <div className="space-y-2 text-sm text-gray-300">
                     <p>• Revisa tu email (también spam/promociones)</p>
-                    <p>• Guarda nuestro contacto: miguel.ybanez.e@gmail.com</p>
+                    <p>• Guarda nuestro contacto: eventosinteligentes@codeaevents.com</p>
                     <p>• Síguenos en redes sociales para actualizaciones</p>
                   </div>
                 </div>

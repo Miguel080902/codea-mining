@@ -90,7 +90,7 @@ const HighlightsGallery = () => {
             <span className="text-gradient">impactantes</span> del evento
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Una colección de los highlights más memorables del CODEa Mining Fest 2025
+            Una colección de los highlights más memorables del CODEa Mining Fest 2025 y preparándonos para 2026
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-600 mx-auto mt-6 rounded-full" />
         </div>

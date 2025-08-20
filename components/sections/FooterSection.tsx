@@ -18,7 +18,7 @@ import {
 
 const Footer = () => {
   // Año fijo para evitar hydration mismatch
-  const currentYear = 2025;
+  const currentYear = 2026;
 
   const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook", color: "hover:text-blue-400" },
@@ -131,10 +131,10 @@ const Footer = () => {
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
                   <a 
-                    href="mailto:miguel.ybanez.e@gmail.com" 
+                    href="mailto:eventosinteligentes@codeaevents.com" 
                     className="text-gray-400 hover:text-white transition-colors break-all"
                   >
-                    miguel.ybanez.e@gmail.com
+                    eventosinteligentes@codeaevents.com
                   </a>
                 </div>
               </div>
@@ -210,7 +210,7 @@ const Footer = () => {
               <div className="bg-blue-600/90 backdrop-blur-sm px-4 py-2 rounded-full">
                 <div className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                  <span className="text-white text-sm font-medium">Próximo evento 2026</span>
+                  <span className="text-white text-sm font-medium">Evento 2026</span>
                 </div>
               </div>
             </div>
