@@ -54,10 +54,10 @@ const Footer = () => {
       <div className="relative z-10">
         {/* Main Footer Content */}
         <div className="container mx-auto px-4 lg:px-6 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
             {/* Logo and Description */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-3">
               <div className="mb-6">
                 <Image
                   src="/images/LOGO-CODEAMININGFEST-WEB.png"
@@ -87,7 +87,7 @@ const Footer = () => {
             </div>
 
             {/* Quick Links */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-2">
               <h4 className="text-lg font-bold text-white mb-6 flex items-center">
                 <Calendar className="w-5 h-5 mr-2 text-yellow-400" />
                 Enlaces rápidos
@@ -108,7 +108,7 @@ const Footer = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-4">
               <h4 className="text-lg font-bold text-white mb-6 flex items-center">
                 <Phone className="w-5 h-5 mr-2 text-green-400" />
                 Contacto
@@ -128,11 +128,11 @@ const Footer = () => {
                   </a>
                 </div>
                 
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                <div className="flex items-start space-x-3">
+                  <Mail className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
                   <a 
                     href="mailto:eventosinteligentes@codeaevents.com" 
-                    className="text-gray-400 hover:text-white transition-colors break-all"
+                    className="text-gray-400 hover:text-white transition-colors break-words"
                   >
                     eventosinteligentes@codeaevents.com
                   </a>
@@ -141,7 +141,7 @@ const Footer = () => {
             </div>
 
             {/* Organization & Social */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-3">
               <h4 className="text-lg font-bold text-white mb-6 flex items-center">
                 <Building2 className="w-5 h-5 mr-2 text-yellow-400" />
                 Empresa

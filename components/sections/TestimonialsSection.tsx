@@ -37,31 +37,31 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Catherine Mesía Benito",
+      name: "Christa Quiroz",
       role: "Jefe de Soluciones Tecnológicas",
       company: "Minería en Komatsu - Mitsui",
-      quote: "Este evento representa el futuro de la minería peruana: conectado, innovador y colaborativo.",
-      image: "/images/testimonial/testimonial-catherine-optimized.webp",
+      quote: "El CODEA Mining Fest 2025 fue un espacio sumamente valioso para conectar con los protagonistas del cambio: líderes que ya están transformando la minería en el Perú. Este tipo de eventos nos recuerdan que la innovación y la colaboración son claves para impulsar una minería más sostenible, eficiente y comprometida con el desarrollo sostenible.",
+      image: "/images/testimonial/testimonial-christa.jpg",
       rating: 5,
       category: "Ponente"
     },
     {
       id: 2,
-      name: "Luis Martinez",
+      name: "Luis Eduardo rojas vasquez",
       role: "Asociado Estratégico IMSS",
       company: "Consultores",
-      quote: "El nivel técnico de las charlas fue de alto valor. Gran trabajo del equipo CODEa.",
-      image: "/images/testimonial/testimonial-luis.webp",
+      quote: "Una experiencia fantástica en el  CODEA MINING FEST , donde la colaboración entre empresas y especialistas reafirma nuestro compromiso colectivo con el rumbo hacia la Minería Digital.",
+      image: "/images/testimonial/testimonial-luis.jpg",
       rating: 5,
       category: "Asistente"
     },
     {
       id: 3,
-      name: "Yair Camborda Morocho",
+      name: "Cléber da cunha",
       role: "Machine learning Engineer",
       company: "Data Scientist",
-      quote: "Este evento representa el futuro de la minería peruana: conectado, innovador y colaborativo.",
-      image: "/images/testimonial/testimonial-yair.webp",
+      quote: "Está edición nos trajo reflexiones importantes sobre la importancia de la data para la minería. Pudimos aprender de referentes y pioneros, desde las trincheras, los desafíos y bondades que nos trae las tecnologías emergentes como la IA.",
+      image: "/images/testimonial/testimonial-cleber.jpg",
       rating: 5,
       category: "Ponente"
     }
@@ -157,13 +157,6 @@ const TestimonialsSection = () => {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   
-                  {/* Category badge */}
-                  <div className="absolute top-6 left-1/2 transform -translate-x-1/2 z-20">
-                    <span className="bg-yellow-500/90 text-black px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                      {testimonials[currentTestimonial].category}
-                    </span>
-                  </div>
-                  
                   {/* Quote icon overlay */}
                   <div className="absolute bottom-6 right-6 z-20">
                     <div className="w-12 h-12 bg-blue-600/90 backdrop-blur-md rounded-full flex items-center justify-center">
@@ -186,7 +179,7 @@ const TestimonialsSection = () => {
               {/* Quote */}
               <div className="relative mb-8">
                 <Quote className="w-16 h-16 text-yellow-400/20 absolute -top-4 -left-4" />
-                <blockquote className="text-2xl lg:text-3xl xl:text-4xl font-medium text-white leading-relaxed italic pl-8">
+                <blockquote className="text-lg lg:text-xl xl:text-2xl font-medium text-white leading-relaxed italic pl-8">
                   "{testimonials[currentTestimonial].quote}"
                 </blockquote>
               </div>

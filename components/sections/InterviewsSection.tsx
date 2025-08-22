@@ -24,12 +24,12 @@ const InterviewsSection = () => {
     showYouTube: true
   });
 
-  // Configuración del carrusel - simplificado y exacto
-  const DESKTOP_VISIBLE = 4; // Cambiado de 5 a 4
-  const MOBILE_VISIBLE = 2;
-  const DESKTOP_ITEM_WIDTH = 160; // Ancho más grande en px
-  const MOBILE_ITEM_WIDTH = 120; // Ancho exacto en px
-  const GAP = 16; // Gap de 1rem = 16px
+  // Configuración del carrusel - ajustado para evitar cortes
+  const DESKTOP_VISIBLE = 4; // Cambiar a 4 cards en desktop
+  const MOBILE_VISIBLE = 1; // Mostrar 1 card completa
+  const DESKTOP_ITEM_WIDTH = 130; // Reducir para que quepan 4
+  const MOBILE_ITEM_WIDTH = 160; // Aumentado para mobile
+  const GAP = 12; // Reducir gap para mejor ajuste
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -174,20 +174,20 @@ const InterviewsSection = () => {
 
   // Funciones del carrusel - COMPLETAMENTE SEPARADAS
   const nextCarousel = React.useCallback((isMobile = false) => {
-    const visibleItems = isMobile ? MOBILE_VISIBLE : DESKTOP_VISIBLE;
-    const maxIndex = Math.max(0, interviews.length - visibleItems);
+    const visibleItems = isMobile ? 1 : 1; // Avanzar de 1 en 1
+    const maxIndex = Math.max(0, interviews.length - (isMobile ? Math.ceil(MOBILE_VISIBLE) : DESKTOP_VISIBLE));
     setCarouselIndex(prev => Math.min(prev + visibleItems, maxIndex));
   }, [interviews.length]);
 
   const prevCarousel = React.useCallback((isMobile = false) => {
-    const visibleItems = isMobile ? MOBILE_VISIBLE : DESKTOP_VISIBLE;
+    const visibleItems = isMobile ? 1 : 1; // Retroceder de 1 en 1
     setCarouselIndex(prev => Math.max(prev - visibleItems, 0));
   }, []);
 
   // Calcular si los botones deben estar deshabilitados
   const canGoPrev = carouselIndex > 0;
   const canGoNext = React.useCallback((isMobile = false) => {
-    const visibleItems = isMobile ? MOBILE_VISIBLE : DESKTOP_VISIBLE;
+    const visibleItems = isMobile ? Math.ceil(MOBILE_VISIBLE) : DESKTOP_VISIBLE;
     return carouselIndex + visibleItems < interviews.length;
   }, [carouselIndex, interviews.length]);
 
@@ -215,7 +215,7 @@ const InterviewsSection = () => {
     const video = interviews[videoState.activeIndex];
     
     return (
-      <div className="flex-1 mx-auto lg:mx-0" style={{ maxWidth: '700px' }}>
+      <div className="flex-1 mx-auto lg:mx-0" style={{ maxWidth: '500px' }}>
         {videoState.showYouTube && video.isYouTube ? (
           <div className="relative group">
             <YouTubeEmbed videoId={video.videoId} />
@@ -337,8 +337,8 @@ const InterviewsSection = () => {
       onClick={() => handleInterviewSelect(index)}
       className={`relative rounded-xl overflow-hidden transition-all duration-300 group flex-shrink-0 ${
         videoState.activeIndex === index 
-          ? 'ring-2 ring-yellow-400 scale-105 shadow-xl shadow-yellow-400/25 z-10' 
-          : 'hover:scale-105 opacity-70 hover:opacity-100'
+          ? 'ring-2 ring-yellow-400 shadow-xl shadow-yellow-400/25 z-10' 
+          : 'opacity-70 hover:opacity-100'
       }`}
       style={{ 
         width: `${itemWidth}px`,
@@ -461,7 +461,7 @@ const InterviewsSection = () => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
           
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-8 items-start">
             
             {/* Main Content Display */}
             <IsolatedVideoPlayer />
@@ -491,11 +491,12 @@ const InterviewsSection = () => {
                 </div>
                 
                 {/* Mobile Carousel Container */}
-                <div className="w-full px-6">
+                <div className="w-full px-4">
                   <div 
-                    className="overflow-hidden py-8"
+                    className="overflow-hidden py-8 px-2"
                     style={{ 
-                      width: `${MOBILE_VISIBLE * MOBILE_ITEM_WIDTH + (MOBILE_VISIBLE - 1) * GAP}px`,
+                      width: '100%',
+                      maxWidth: `${MOBILE_ITEM_WIDTH+12}px`,
                       margin: '0 auto'
                     }}
                   >
@@ -535,10 +536,10 @@ const InterviewsSection = () => {
             </div>
 
             {/* Desktop Content & Interview Selection */}
-            <div className="hidden lg:block flex-1 space-y-8">
+            <div className="hidden lg:block flex-1 space-y-6 max-w-2xl">
               
               {/* Current Interview Extended Info */}
-              <div className="text-center lg:text-left px-8">
+              <div className="text-center lg:text-left px-6">
                 <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-red-500 to-red-600 text-white text-sm font-medium mb-4">
                   {currentVideo.isYouTube ? (
                     <Play className="w-4 h-4 mr-2" />
@@ -548,21 +549,21 @@ const InterviewsSection = () => {
                   {currentVideo.isYouTube ? 'Video Oficial' : 'Entrevista Ejemplo'}
                 </div>
                 
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">
+                <h3 className="text-xl lg:text-2xl font-bold text-white mb-2">
                   {currentVideo.name}
                 </h3>
-                <p className="text-lg text-yellow-400 mb-4">
+                <p className="text-base text-yellow-400 mb-4">
                   {currentVideo.role}
                 </p>
                 
                 {/* Full Quote Display */}
-                <div className="relative mb-6 p-6 bg-slate-800/30 backdrop-blur-sm rounded-xl border border-yellow-500/20">
+                <div className="relative mb-4 p-4 bg-slate-800/30 backdrop-blur-sm rounded-xl border border-yellow-500/20">
                   {currentVideo.isYouTube ? (
-                    <Play className="w-8 h-8 text-red-400/40 absolute top-4 left-4" />
+                    <Play className="w-6 h-6 text-red-400/40 absolute top-3 left-3" />
                   ) : (
-                    <Quote className="w-8 h-8 text-yellow-400/40 absolute top-4 left-4" />
+                    <Quote className="w-6 h-6 text-yellow-400/40 absolute top-3 left-3" />
                   )}
-                  <blockquote className="text-lg text-gray-300 leading-relaxed pl-8">
+                  <blockquote className="text-sm text-gray-300 leading-relaxed pl-6">
                     "{currentVideo.quote}"
                   </blockquote>
                 </div>
@@ -601,7 +602,7 @@ const InterviewsSection = () => {
 
               {/* Desktop Carousel */}
               <div className="space-y-4">
-                <div className="flex items-center justify-between px-8">
+                <div className="flex items-center justify-between px-6">
                   <h4 className="text-lg font-semibold text-white">Todo el contenido:</h4>
                   <div className="flex space-x-2">
                     <button
@@ -622,11 +623,12 @@ const InterviewsSection = () => {
                 </div>
                 
                 {/* Desktop Carousel Container */}
-                <div className="w-full px-8">
+                <div className="w-full px-4">
                   <div 
-                    className="overflow-hidden py-8"
+                    className="overflow-hidden py-8 px-2"
                     style={{ 
-                      width: `${DESKTOP_VISIBLE * DESKTOP_ITEM_WIDTH + (DESKTOP_VISIBLE - 1) * GAP}px`,
+                      width: '100%',
+                      maxWidth: `${DESKTOP_VISIBLE * DESKTOP_ITEM_WIDTH + 12 + (DESKTOP_VISIBLE - 1) * GAP}px`,
                       margin: '0 auto'
                     }}
                   >
@@ -651,7 +653,7 @@ const InterviewsSection = () => {
               </div>
 
               {/* Navigation Dots */}
-              <div className="flex justify-center lg:justify-start space-x-2 px-8">
+              <div className="flex justify-center lg:justify-start space-x-2 px-6">
                 {interviews.map((_, index) => (
                   <button
                     key={index}

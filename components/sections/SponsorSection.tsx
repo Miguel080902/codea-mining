@@ -63,6 +63,9 @@ const SponsorsSection = () => {
     }
   ];
 
+  // Duplicar sponsors para efecto infinito sin cortes
+  const infiniteSponsors = [...diamondSponsors, ...diamondSponsors];
+
   return (
     <section 
       id="sponsors"
@@ -129,133 +132,126 @@ const SponsorsSection = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-500 to-amber-600 mx-auto mt-6 rounded-full" />
         </div>
 
-        {/* Sponsors Grid */}
+        {/* Infinite Carousel */}
         <div className={`transform transition-all duration-1000 delay-300 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
           
-          {/* Main Sponsors Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-12">
-            {diamondSponsors.slice(0, 3).map((sponsor, index) => (
-              <div
-                key={sponsor.id}
-                className={`group relative transform transition-all duration-700 hover:scale-105 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                }`}
-                style={{ transitionDelay: `${index * 200}ms` }}
-              >
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-amber-600/20 rounded-2xl blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                {/* Sponsor Card */}
-                <div className="relative bg-white border-2 border-gray-100 rounded-2xl p-8 lg:p-10 text-center shadow-lg hover:shadow-2xl hover:border-yellow-500/30 transition-all duration-500">
+          {/* Carousel Container */}
+          <div className="relative overflow-hidden py-8">
+            {/* Gradient overlays for fade effect - Only on desktop */}
+            <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none"></div>
+            <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none"></div>
+            
+            <div className="flex animate-scroll-infinite">
+              {infiniteSponsors.map((sponsor, index) => (
+                <div
+                  key={`${sponsor.id}-${index}`}
+                  className="group relative flex-shrink-0 mx-2 lg:mx-6"
+                >
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-amber-600/20 rounded-2xl blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
-                  {/* Diamond Badge */}
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-500 to-amber-600 text-black px-4 py-2 rounded-full text-xs font-bold shadow-lg flex items-center">
-                    <Crown className="w-3 h-3 mr-1" />
-                    DIAMANTE
+                  {/* Sponsor Card */}
+                  <div className="relative bg-white border-2 border-gray-100 rounded-2xl p-4 lg:p-8 text-center shadow-lg hover:shadow-2xl hover:border-yellow-500/30 transition-all duration-500 h-56 lg:h-64">
+                    
+                    {/* Diamond Badge */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-500 to-amber-600 text-black px-3 py-1 rounded-full text-xs font-bold shadow-lg flex items-center">
+                      <Crown className="w-3 h-3 mr-1" />
+                      DIAMANTE
+                    </div>
+                    
+                    {/* Logo Container */}
+                    <div className="relative h-20 lg:h-24 mb-4 flex items-center justify-center">
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        width={160}
+                        height={80}
+                        className="max-h-full w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+                      />
+                    </div>
+                    
+                    {/* Sponsor Info */}
+                    <h3 className="text-lg lg:text-xl font-bold text-gray-800 mb-2 group-hover:text-yellow-600 transition-colors duration-300">
+                      {sponsor.name}
+                    </h3>
+                    
+                    <p className="text-gray-600 text-sm">
+                      {sponsor.description}
+                    </p>
+                    
+                    {/* Hover line effect */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 to-amber-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center rounded-b-2xl" />
                   </div>
-                  
-                  {/* Logo Container */}
-                  <div className="relative h-24 lg:h-32 mb-6 flex items-center justify-center">
-                    <Image
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      width={200}
-                      height={100}
-                      className="max-h-full w-auto object-contain transition-transform duration-300 group-hover:scale-110"
-                    />
-                  </div>
-                  
-                  {/* Sponsor Info */}
-                  <h3 className="text-xl lg:text-2xl font-bold text-gray-800 mb-3 group-hover:text-yellow-600 transition-colors duration-300">
-                    {sponsor.name}
-                  </h3>
-                  
-                  <p className="text-gray-600 text-sm lg:text-base">
-                    {sponsor.description}
-                  </p>
-                  
-                  {/* Hover line effect */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 to-amber-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center rounded-b-2xl" />
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          {/* Second Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {diamondSponsors.slice(3, 6).map((sponsor, index) => (
-              <div
-                key={sponsor.id}
-                className={`group relative transform transition-all duration-700 hover:scale-105 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                }`}
-                style={{ transitionDelay: `${(index + 3) * 200}ms` }}
-              >
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-amber-600/20 rounded-2xl blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                {/* Sponsor Card */}
-                <div className="relative bg-white border-2 border-gray-100 rounded-2xl p-8 lg:p-10 text-center shadow-lg hover:shadow-2xl hover:border-yellow-500/30 transition-all duration-500">
-                  
-                  {/* Diamond Badge */}
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-500 to-amber-600 text-black px-4 py-2 rounded-full text-xs font-bold shadow-lg flex items-center">
-                    <Crown className="w-3 h-3 mr-1" />
-                    DIAMANTE
-                  </div>
-                  
-                  {/* Logo Container */}
-                  <div className="relative h-24 lg:h-32 mb-6 flex items-center justify-center">
-                    <Image
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      width={200}
-                      height={100}
-                      className="max-h-full w-auto object-contain transition-transform duration-300 group-hover:scale-110"
-                    />
-                  </div>
-                  
-                  {/* Sponsor Info */}
-                  <h3 className="text-xl lg:text-2xl font-bold text-gray-800 mb-3 group-hover:text-yellow-600 transition-colors duration-300">
-                    {sponsor.name}
-                  </h3>
-                  
-                  <p className="text-gray-600 text-sm lg:text-base">
-                    {sponsor.description}
-                  </p>
-                  
-                  {/* Hover line effect */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 to-amber-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center rounded-b-2xl" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Stats Section */}
-        <div className={`mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 transform transition-all duration-1000 delay-1000 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-        }`}>
-          <div className="text-center p-6 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl border border-yellow-200">
-            <Award className="w-8 h-8 text-yellow-600 mx-auto mb-3" />
-            <div className="text-3xl font-bold text-yellow-600 mb-2">6</div>
-            <div className="text-gray-700 font-medium">Sponsors Diamante</div>
-          </div>
-          
-          <div className="text-center p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl border border-blue-200">
-            <Star className="w-8 h-8 text-blue-600 mx-auto mb-3" />
-            <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
-            <div className="text-gray-700 font-medium">Años de experiencia</div>
-          </div>
-          
-          <div className="text-center p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
-            <Crown className="w-8 h-8 text-green-600 mx-auto mb-3" />
-            <div className="text-3xl font-bold text-green-600 mb-2">100%</div>
-            <div className="text-gray-700 font-medium">Líderes del sector</div>
-          </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes scroll-bidirectional-desktop {
+          0% {
+            transform: translateX(0);
+          }
+          45% {
+            transform: translateX(-50%);
+          }
+          50% {
+            transform: translateX(-50%);
+          }
+          95% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes scroll-bidirectional-mobile {
+          0% {
+            transform: translateX(0);
+          }
+          45% {
+            transform: translateX(-390%);
+          }
+          50% {
+            transform: translateX(-390%);
+          }
+          60% {
+            transform: translateX(-390%);
+          }
+          95% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+        
+        .animate-scroll-infinite {
+          animation: scroll-bidirectional-mobile 32s ease-in-out infinite;
+        }
+
+        @media (min-width: 1024px) {
+          .animate-scroll-infinite {
+            animation: scroll-bidirectional-desktop 16s ease-in-out infinite;
+          }
+        }
+        
+        .animate-scroll-infinite > div {
+          width: 220px;
+        }
+
+        @media (min-width: 1024px) {
+          .animate-scroll-infinite > div {
+            width: 320px;
+          }
+        }
+      `}</style>
     </section>
   );
 };

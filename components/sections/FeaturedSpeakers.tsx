@@ -1,12 +1,113 @@
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { Award, MapPin, Linkedin, Twitter, Users, Star } from 'lucide-react';
+import { Award, MapPin, Linkedin, Twitter, Users, Star, ArrowRight } from 'lucide-react';
 
 const FeaturedSpeakers = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredSpeaker, setHoveredSpeaker] = useState<number | null>(null);
+  const [carouselIndex, setCarouselIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  // Configuración del carrusel mobile
+  const MOBILE_ITEM_WIDTH = 250;
+  const GAP = 16;
+
+  const speakers = [
+    {
+      id: 0,
+      name: "Christa Quiroz Cotrina",
+      title: "Ingeniera en Minas | Lider de planificación, supervisión y desarrollo de planes mineros",
+      subtitle: "Integración de nuevas tecnologías de gestión de relaves y desmonte en la Planificación en minería a tajo abierto",
+      image: "/images/speakers/speaker-christa-optimized.webp",
+      country: "Perú"
+    },
+    {
+      id: 1,
+      name: "Hyder Mamani",
+      title: "Sub Grte. Técnico en procesos metalúrgicos MEPSA Aceros Chilca SAC",
+      subtitle: "Redefinición de la IA en la conexión Mina-Planta",
+      image: "/images/speakers/speaker-hyder-optimized.webp",
+      country: "Perú"
+    },
+    {
+      id: 2,
+      name: "Christian Osorio",
+      title: "Gerente General IMSS by Latam",
+      subtitle: "Análisis de riesgo aplicado a la planificación minera",
+      image: "/images/speakers/speaker-christian-optimized.webp",
+      country: "Perú"
+    },
+    {
+      id: 3,
+      name: "Enrique Paredes",
+      title: "Operations Mining Executive",
+      subtitle: "Gestión integrada de operaciones mineras",
+      image: "/images/speakers/speaker-enrique-optimized.webp",
+      country: "Perú"
+    },
+    {
+      id: 4,
+      name: "Luis Eduardo Rojas",
+      title: "Gerente de Tecnologías de Información en Hudbay Peru S.A.C.",
+      subtitle: "OT para soportar la operación minera",
+      image: "/images/speakers/speaker-luis-e-optimized.webp",
+      country: "Perú"
+    },
+    {
+      id: 5,
+      name: "José Chimaico",
+      title: "Gerente de operaciones FLANDERS",
+      subtitle: "Futuro autónomo: Tecnología de Perforación agnóstica",
+      image: "/images/speakers/speaker-jose-optimized.webp",
+      country: "Perú"
+    },
+    {
+      id: 6,
+      name: "Giovanna Tito",
+      title: "CEO SILTZ | Directora Independiente MS4M",
+      subtitle: "Minería 5.0: Operaciones Integradas, Seguras y Colaborativas",
+      image: "/images/speakers/speaker-giovanna-optimized.webp",
+      country: "Perú"
+    },
+    {
+      id: 7,
+      name: "Yair Camborda Morocho",
+      title: "Machine learning Engineer | Data Scientist",
+      subtitle: "IA en acción: Casos de éxito que están revolucionando  la minería",
+      image: "/images/speakers/speaker-yair-optimized.webp",
+      country: "Perú"
+    },
+    {
+      id: 8,
+      name: "Hilario Gorvenia",
+      title: "Gerente de procesos y planta en Metso",
+      subtitle: "El valor agregado de la Conminución y la Variabilidad como Enemigo Silencioso en la Eficiencia del Proceso.",
+      image: "/images/speakers/speaker-hilario-optimized.webp",
+      country: "Perú"
+    },
+    {
+      id: 9,
+      name: "Luis Martinez",
+      title: "Asociado Estratégico IMSS-Consultores",
+      subtitle: "Análisis de riesgo aplicado a la planificación minera",
+      image: "/images/speakers/speaker-luis-m-optimized.webp",
+      country: "Perú"
+    },
+  ];
+
+  // Funciones del carrusel mobile
+  const nextCarousel = () => {
+    const maxIndex = Math.max(0, speakers.length - 1);
+    setCarouselIndex(prev => Math.min(prev + 1, maxIndex));
+  };
+
+  const prevCarousel = () => {
+    setCarouselIndex(prev => Math.max(prev - 1, 0));
+  };
+
+  const canGoPrev = carouselIndex > 0;
+  const canGoNext = carouselIndex < speakers.length - 1;
 
   useEffect(() => {
     // Fallback para mobile: mostrar después de 1 segundo si no se detecta intersección
@@ -33,89 +134,6 @@ const FeaturedSpeakers = () => {
       clearTimeout(fallbackTimer);
     };
   }, []);
-
-  const speakers = [
-    {
-      id: 0,
-      name: "Christa Quiroz Cotrina",
-      title: "Ingeniera en Minas | Lider de planificación, supervisión y desarrollo de planes mineros",
-      subtitle: "Integración de nuevas tecnologías de gestión de relaves y desmonte en la Planificación en minería a tajo abierto",
-      image: "/images/speakers/speaker-christa-optimized.webp",
-      country: "Perú"
-    },
-    {
-      id: 1,
-      name: "Hyder Mamani",
-      title: "Sub Grte. Técnico en procesos metalúrgicos MEPSA Aceros Chilca SAC",
-      subtitle: "Redefinición de la IA en la conexión Mina-Planta",
-      image: "/images/speakers/speaker-hyder-optimized.webp",
-      country: "Perú"
-    },
-    {
-      id: 2,
-      name: "Christian Osorio",
-      title: "Gerente General IMSS by Latam",
-      subtitle: "Análisis de riesgo aplicado a la planificación minera",
-      image: "/images/speakers/speaker-christian-optimized.webp",
-      country: "Perú"
-    },
-    {
-      id: 3,
-      name: "Enrique Paredes",
-      title: "Operations Mining Executive",
-      subtitle: "Gestión integrada de operaciones mineras",
-      image: "/images/speakers/speaker-enrique-optimized.webp",
-      country: "Perú"
-    },
-    {
-      id: 4,
-      name: "Luis Eduardo Rojas",
-      title: "Gerente de Tecnologías de Información en Hudbay Peru S.A.C.",
-      subtitle: "OT para soportar la operación minera",
-      image: "/images/speakers/speaker-luis-e-optimized.webp",
-      country: "Perú"
-    },
-    {
-      id: 5,
-      name: "José Chimaico",
-      title: "Gerente de operaciones FLANDERS",
-      subtitle: "Futuro autónomo: Tecnología de Perforación agnóstica",
-      image: "/images/speakers/speaker-jose-optimized.webp",
-      country: "Perú"
-    },
-    {
-      id: 6,
-      name: "Giovanna Tito",
-      title: "CEO SILTZ | Directora Independiente MS4M",
-      subtitle: "Minería 5.0: Operaciones Integradas, Seguras y Colaborativas",
-      image: "/images/speakers/speaker-giovanna-optimized.webp",
-      country: "Perú"
-    },
-    {
-      id: 7,
-      name: "Yair Camborda Morocho",
-      title: "Machine learning Engineer | Data Scientist",
-      subtitle: "IA en acción: Casos de éxito que están revolucionando  la minería",
-      image: "/images/speakers/speaker-yair-optimized.webp",
-      country: "Perú"
-    },
-    {
-      id: 8,
-      name: "Hilario Gorvenia",
-      title: "Gerente de procesos y planta en Metso",
-      subtitle: "El valor agregado de la Conminución y la Variabilidad como Enemigo Silencioso en la Eficiencia del Proceso.",
-      image: "/images/speakers/speaker-hilario-optimized.webp",
-      country: "Perú"
-    },
-    {
-      id: 9,
-      name: "Luis Martinez",
-      title: "Asociado Estratégico IMSS-Consultores",
-      subtitle: "Análisis de riesgo aplicado a la planificación minera",
-      image: "/images/speakers/speaker-luis-m-optimized.webp",
-      country: "Perú"
-    },
-  ];
 
   return (
     <section 
@@ -184,84 +202,223 @@ const FeaturedSpeakers = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-600 mx-auto rounded-full" />
         </div>
 
-        {/* Speakers Grid */}
-        <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 transform transition-all duration-1000 delay-300 ${
+        {/* Mobile Carousel */}
+        <div className={`lg:hidden relative transform transition-all duration-1000 delay-300 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
-          {speakers.map((speaker, index) => (
-            <div
-              key={speaker.id}
-              className={`group relative transform transition-all duration-700 hover:scale-105 h-full ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-              }`}
-              style={{ transitionDelay: `${index * 200}ms` }}
-              onMouseEnter={() => setHoveredSpeaker(speaker.id)}
-              onMouseLeave={() => setHoveredSpeaker(null)}
+          {/* Carousel Controls */}
+          <div className="flex items-center justify-between mb-6 px-4">
+            <h3 className="text-lg font-semibold text-white">Ponentes destacados</h3>
+            <div className="flex space-x-2">
+              <button
+                onClick={prevCarousel}
+                disabled={!canGoPrev}
+                className="w-10 h-10 bg-slate-800/50 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-slate-700/50 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                <ArrowRight className="w-5 h-5 rotate-180" />
+              </button>
+              <button
+                onClick={nextCarousel}
+                disabled={!canGoNext}
+                className="w-10 h-10 bg-slate-800/50 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-slate-700/50 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Carousel Container */}
+          <div className="w-full px-4">
+            <div 
+              className="overflow-hidden py-4"
+              style={{ 
+                width: '100%',
+                maxWidth: `${MOBILE_ITEM_WIDTH + 1}px`,
+                margin: '0 auto'
+              }}
             >
-              {/* Card Container - Altura fija */}
-              <div className="relative bg-slate-800/40 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-yellow-500/30 transition-all duration-500 h-full flex flex-col min-h-[380px]">
-                
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-                
-                {/* Speaker Image - Altura fija */}
-                <div className="relative h-48 overflow-hidden flex-shrink-0">
-                  <Image
-                    src={speaker.image}
-                    alt={speaker.name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                  
-                  {/* Country Badge */}
-                  <div className="absolute top-4 right-4 flex items-center space-x-1 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full">
-                    <MapPin className="w-3 h-3 text-yellow-400" />
-                    <span className="text-white text-xs font-medium">{speaker.country}</span>
+              <div 
+                className="flex transition-transform duration-500 ease-out"
+                style={{ 
+                  transform: `translateX(-${carouselIndex * (MOBILE_ITEM_WIDTH + GAP)}px)`,
+                  gap: `${GAP}px`
+                }}
+              >
+                {speakers.map((speaker, index) => (
+                  <div
+                    key={speaker.id}
+                    className="group relative transform transition-all duration-700 flex-shrink-0"
+                    style={{ 
+                      width: `${MOBILE_ITEM_WIDTH}px`,
+                      transitionDelay: `${index * 100}ms` 
+                    }}
+                    onMouseEnter={() => setHoveredSpeaker(speaker.id)}
+                    onMouseLeave={() => setHoveredSpeaker(null)}
+                  >
+                    {/* Card Container - Altura fija */}
+                    <div className="relative bg-slate-800/40 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-yellow-500/30 transition-all duration-500 h-full flex flex-col min-h-[380px]">
+                      
+                      {/* Glow Effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                      
+                      {/* Speaker Image - Altura fija */}
+                      <div className="relative h-48 overflow-hidden flex-shrink-0">
+                        <Image
+                          src={speaker.image}
+                          alt={speaker.name}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                        
+                        {/* Country Badge */}
+                        <div className="absolute top-4 right-4 flex items-center space-x-1 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full">
+                          <MapPin className="w-3 h-3 text-yellow-400" />
+                          <span className="text-white text-xs font-medium">{speaker.country}</span>
+                        </div>
+
+                        {/* Hover Social Icons */}
+                        <div className={`absolute bottom-4 right-4 flex space-x-2 transform transition-all duration-300 ${
+                          hoveredSpeaker === speaker.id ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                        }`}>
+                          <button className="w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300">
+                            <Linkedin className="w-4 h-4 text-white" />
+                          </button>
+                          <button className="w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300">
+                            <Twitter className="w-4 h-4 text-white" />
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Speaker Info - Flex-grow para ocupar espacio restante */}
+                      <div className="relative p-3 flex-grow flex flex-col">
+                        <div>
+                          <h3 className="text-base font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors duration-300 leading-tight">
+                            {speaker.name}
+                          </h3>
+                          
+                          <p className="text-yellow-400 font-medium text-xs mb-1 leading-tight">
+                            {speaker.title}
+                          </p>
+                          
+                          <p className="text-gray-400 text-xs leading-tight font-light">
+                            {speaker.subtitle}
+                          </p>
+                        </div>
+
+                        {/* Hover line effect */}
+                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 to-amber-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-2xl" />
+                      </div>
+
+                      {/* Floating number */}
+                      <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg">
+                        {index + 1}
+                      </div>
+                    </div>
                   </div>
-
-                  {/* Hover Social Icons */}
-                  <div className={`absolute bottom-4 right-4 flex space-x-2 transform transition-all duration-300 ${
-                    hoveredSpeaker === speaker.id ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                  }`}>
-                    <button className="w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300">
-                      <Linkedin className="w-4 h-4 text-white" />
-                    </button>
-                    <button className="w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300">
-                      <Twitter className="w-4 h-4 text-white" />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Speaker Info - Flex-grow para ocupar espacio restante */}
-                <div className="relative p-3 flex-grow flex flex-col">
-                  <div>
-                    <h3 className="text-base font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors duration-300 leading-tight">
-                      {speaker.name}
-                    </h3>
-                    
-                    <p className="text-yellow-400 font-medium text-xs mb-1 leading-tight">
-                      {speaker.title}
-                    </p>
-                    
-                    <p className="text-gray-400 text-xs leading-tight font-light">
-                      {speaker.subtitle}
-                    </p>
-                  </div>
-
-                  {/* Hover line effect */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 to-amber-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-2xl" />
-                </div>
-
-                {/* Floating number */}
-                <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg">
-                  {index + 1}
-                </div>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Navigation Dots */}
+          <div className="flex justify-center space-x-2 mt-6">
+            {speakers.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCarouselIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  carouselIndex === index 
+                    ? 'bg-yellow-400 w-6' 
+                    : 'bg-gray-600 hover:bg-gray-400'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className={`hidden lg:block transform transition-all duration-1000 delay-300 ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8">
+            {speakers.map((speaker, index) => (
+              <div
+                key={speaker.id}
+                className={`group relative transform transition-all duration-700 hover:scale-105 h-full ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
+                onMouseEnter={() => setHoveredSpeaker(speaker.id)}
+                onMouseLeave={() => setHoveredSpeaker(null)}
+              >
+                {/* Card Container - Altura fija */}
+                <div className="relative bg-slate-800/40 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-yellow-500/30 transition-all duration-500 h-full flex flex-col min-h-[380px]">
+                  
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                  
+                  {/* Speaker Image - Altura fija */}
+                  <div className="relative h-48 overflow-hidden flex-shrink-0">
+                    <Image
+                      src={speaker.image}
+                      alt={speaker.name}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                    
+                    {/* Country Badge */}
+                    <div className="absolute top-4 right-4 flex items-center space-x-1 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full">
+                      <MapPin className="w-3 h-3 text-yellow-400" />
+                      <span className="text-white text-xs font-medium">{speaker.country}</span>
+                    </div>
+
+                    {/* Hover Social Icons */}
+                    <div className={`absolute bottom-4 right-4 flex space-x-2 transform transition-all duration-300 ${
+                      hoveredSpeaker === speaker.id ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                    }`}>
+                      <button className="w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300">
+                        <Linkedin className="w-4 h-4 text-white" />
+                      </button>
+                      <button className="w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300">
+                        <Twitter className="w-4 h-4 text-white" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Speaker Info - Flex-grow para ocupar espacio restante */}
+                  <div className="relative p-3 flex-grow flex flex-col">
+                    <div>
+                      <h3 className="text-base font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors duration-300 leading-tight">
+                        {speaker.name}
+                      </h3>
+                      
+                      <p className="text-yellow-400 font-medium text-xs mb-1 leading-tight">
+                        {speaker.title}
+                      </p>
+                      
+                      <p className="text-gray-400 text-xs leading-tight font-light">
+                        {speaker.subtitle}
+                      </p>
+                    </div>
+
+                    {/* Hover line effect */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 to-amber-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-2xl" />
+                  </div>
+
+                  {/* Floating number */}
+                  <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg">
+                    {index + 1}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
